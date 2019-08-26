@@ -10,9 +10,11 @@
 
 
 .wrap_home{
+    min-height:100%; 
     padding: .25rem .25rem 0 .25rem;   
     /* 省  游客    今日全省警情*/
     .qsjq{
+        background-color: #fff;
         // width: 16rem;
         min-height: 2.1rem;
         border: 1px solid #dcdcdc;
@@ -54,12 +56,12 @@
                 }
                 .qsjq_name{
                     text-align: center;
-                    font-size: .14rem;
+                    font-size: .12rem;
                     margin-top:.04rem; 
                 }
                 .qsjq_name_zd{
                     text-align: center;
-                    font-size: .14rem;
+                    font-size: .12rem;
                     // margin-top:.01rem; 
                     font-weight: 600;
 
@@ -75,9 +77,10 @@
         border:1px solid #dcdcdc ;
         margin-top: 0.26rem;
         width: 7.6rem;
+        background-color: #fff;
         .data_context{
             width: 7.5rem;
-            height:3rem
+            height:3rem;
         }
     }
     .box{
@@ -85,17 +88,33 @@
         justify-content:space-between;
         .dyfb{
             .dyfb_title{
-                border-bottom:1px solid  #dcdcdc;
-                height: 0.58rem;
+                // border-bottom:1px solid  #dcdcdc;
+                // height: 0.58rem;
             }
+            .gfjq_list{
+                display: flex;
+                min-height: auto;
+                justify-content: space-between;
+                .gfjq_table{
+                    margin:.27rem .51rem 0 .3rem ;
+                    border: 1px solid #dddddd;
+                }
+            }
+        }
+        .gfjq_list{
+            border:1px solid  #dcdcdc;
+
         }
 
     }
+    
+
     .connect_wrap{
         width: 100%;
         min-height: 2.2rem;
         border:1px solid #dcdcdc ;
         margin-top: .26rem;
+        background: #fff;
         .connect_title{
             height: 0.58rem;
             border-bottom:1px solid #dcdcdc ;
@@ -104,7 +123,46 @@
         .connect_listwrap{
             .explain{
                 min-height: .6rem;
-                border-bottom: 1px solid #dcdcdc ;
+                // border-bottom: 1px solid #dcdcdc ;
+                font-size: .14rem;
+                text-align: center;
+                line-height: .6rem;
+                div{
+                    display: inline-block;
+                    margin-right: .4rem;
+                    i{
+                        font-size: .2rem;
+                    }
+                }
+            }
+            .connect_info{
+                display: flex;
+                justify-content: space-around;
+                li{
+                   text-align: center;
+                   width: .44rem;
+                   height: .83rem; 
+                   .Img{
+                       display: block;
+                       font-size: .44rem;
+                       width: .44rem;
+                       height: 0.5rem;
+                   }
+                   p{
+                       margin-top: .09rem;
+                   }
+                }
+
+            }
+            .c_normal{
+                color : #41cf5a
+            }
+            .c_overtime{
+                color : #ffe25c
+            }
+            .c_break{
+                color : #ff4200
+
             }
         }
     }
@@ -113,6 +171,7 @@
         min-height: 3rem;
         margin-top: .26rem;
         border:1px solid #dcdcdc ;
+        background: #fff;
         .box2_title{
             height: 0.58rem;
             border-bottom:1px solid #dcdcdc ;
@@ -121,9 +180,11 @@
             margin: .21rem  .35rem  .27rem .25rem;
             border:1px solid #dcdcdc ;
             min-height: 2.47rem;
+            overflow: hidden;
         }
     }
     .box3{
+        background: #fff;
         margin-top: .26rem;
         margin-bottom: .36rem;
         border:1px solid #dcdcdc ;
@@ -160,6 +221,23 @@
 
             }
         }
+    }
+
+    .common_title{
+        border-bottom:1px solid  #dcdcdc;
+        padding-left:.12rem; 
+        
+        font-weight: 550;
+        height: 0.58rem;
+        line-height: .58rem;
+        font-size: .16rem;
+        i{
+           color:  #89abe5;
+           width: .24rem;
+           height: .24rem;
+           padding-right:.13rem; 
+        }
+
     }
 }
 

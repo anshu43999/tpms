@@ -26,17 +26,17 @@
     <!-- 今日警情地域分布   分    近七日两抢一盗分布 -->
     <div class="box">
         <div class="dyfb box_common" >
-            <div class="dyfb_title">今日警情地域分布</div>
+            <div class="dyfb_title common_title"><i class="iconfont icon-anjian"></i>今日警情地域分布</div>
             <div class="data_context" >
-                <div id="area" ref="area" style="width: 100%;height: 90%"></div>
+                <div id="area" ref="area" style="width: 100%;height: 100%"></div>
             </div>
             <!-- <button @click="save($event)">保存</button> -->
         </div>
 
         <div class="dyfb box_common" >
-            <div class="dyfb_title">近七日两抢一盗分布</div>
+            <div class="common_title">   <i class="iconfont icon-qiangjie"></i>  近七日两抢一盗分布</div>
             <div class="data_context">
-                <div id="qiangdao" style="width: 100%;height: 90%"></div>
+                <div id="qiangdao" style="width: 100%;height: 100%"></div>
                 <!-- <button @click="save($event)">保存</button> -->
             </div>
             <!-- <button @click="save($event)">保存</button> -->
@@ -50,18 +50,18 @@
     <div class="box">
         <div class="dyfb box_common" >
 
-            <div class="dyfb_title">今日警情类别分布</div>
+            <div class="common_title"><i class="iconfont icon-leibie"></i>今日警情类别分布</div>
             <div class="data_context">
-                <div id="type" style="width: 100%;height: 90%"></div>
+                <div id="type" style="width: 100%;height: 100%"></div>
                 <!-- <button @click="save($event)">保存</button> -->
             </div>
             <!-- <button @click="save($event)">保存</button> -->
         </div>
 
         <div class="dyfb box_common" >
-            <div class="dyfb_title">近期警情同比走势图</div>
+            <div class="common_title">  <i class="iconfont icon-tongbi"></i>  近期警情同比走势图</div>
             <div class="data_context">
-                <div id="jingqingtongbi" style="width: 100%;height: 90%"></div>
+                <div id="jingqingtongbi" style="width: 100%;height: 100%"></div>
                 <!-- <button @click="save($event)">保存</button> -->
             </div>
             <!-- <button @click="save($event)">保存</button> -->
@@ -80,9 +80,26 @@
    
     <!--省   游客    链路实时监控 -->
     <div class="connect_wrap">
-        <div class="connect_title">链路实时监控</div>
+        <div class="common_title"><i class="iconfont icon-shishijiankong"></i>链路实时监控</div>
         <div class="connect_listwrap">
-            <div class="explain"></div>
+            <div class="explain">
+                <div>
+                    <i class="iconfont icon-shishijiankong c_normal" ></i><span>正常</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-shishijiankong c_overtime" ></i><span>超8小时无新警情</span>                    
+                </div>
+                <div>
+                    <i class="iconfont icon-shishijiankong c_break" ></i><span>链路断开</span>
+                </div>
+            </div>
+
+            <ul class="connect_info">
+                <li   v-for="(item,index) in data8"  :key="index">
+                    <i :class="[ item['value'] === 1? 'c_normal' :item['value']===2? 'c_overtime':  'c_break'    ,'Img',  'iconfont' ,'icon-ball-camera-d'   ]"></i>
+                    <p>{{item['city']}}</p>
+                </li> 
+            </ul>
 
         </div>
     </div>
@@ -94,17 +111,17 @@
     <!-- 省、市     警情三级分类统计 -->   <!-- 抽取接警处理统计 -->
     <div class="box">
         <div class="dyfb box_common" style="width:6.5rem">
-        <div class="dyfb_title">警情三级分类统计</div>
+        <div class="common_title"> <i class="iconfont icon-dengji"></i>  警情三级分类统计</div>
         <div class="data_context"   style="width:6.5rem">
-           <div id="liquidFill" style="width: 100%;height: 90%"></div>
+           <div id="liquidFill" style="width: 100%;height: 100%"></div>
             <!-- <button @click="save($event)">保存</button> -->
             </div>
         </div>
 
         <div class="dyfb box_common" style="width:8.5rem">
-            <div class="dyfb_title">今日警情类别分布</div>
+            <div class="common_title">   <i class="iconfont icon-baojingchuli"></i>  抽取接警处理统计</div>
             <div class="data_context">
-            <div id="jiejingchuli" style="width: 100%;height: 90%"></div>
+            <div id="jiejingchuli" style="width: 100%;height: 100%"></div>
                 <!-- <button @click="save($event)">保存</button> -->
             </div>
         </div>
@@ -116,13 +133,23 @@
 
    <!--省、市  高发刑事警情 -->
     <div class="box">
-        <div class="dyfb box_common" style="width:8.5rem">
-                <div class="dyfb_title">今日警情类别分布</div>
-                <div class="data_context">
-                    <div id="gaofajingqing" style="width: 100%;height: 90%"></div>
+        <div class="dyfb box_common" style="width:100%">
+            <div class="common_title">  <i class="iconfont icon-jingqing"></i>高发刑事警情</div>
+
+            <div class="gfjq_list" style="width:100%">
+                <div class="data_context" style="width:7rem">
+                    <div id="gaofajingqing" style="width: 100%;height: 100%"></div>
                     <!-- <button @click="save($event)">保存</button> -->
                 </div>
+                <div class="gfjq_table" style="width : 7.2rem">
+                     <exclusivelist></exclusivelist>
+
+                </div>
+
+            </div>
+            
         </div>
+        
     </div>
 
 
@@ -131,15 +158,15 @@
    <div class="box2">
         <div class="box2_title">处警反馈情况</div>
         <div class="box2_wraplist">
-
-
+            <List :data9='data9' :data10 ='data10'></List>
         </div>   
+        
 
    </div>
 
    <!--省、市    重大警情 -->
     <div class="box3">
-        <div class="box3_title">重大警情</div>
+        <div class="common_title"> <i class="iconfont icon-jingqingxinxi"></i>重大警情</div>
         <ul>
             <li class="jq_list">
                 <div class="jq_area">  <i>1.</i>   太原市</div>
@@ -184,10 +211,14 @@ require("echarts/lib/component/toolbox");
 
 import echartsLiquidfill from 'echarts/dist/echarts-liquidfill'
 
-
+import exclusivelist from '@/components/common/action/exclusivelist.vue'
+import List from '@/components/common/action/list.vue'
 export default {
 //import引入的组件需要注入到对象中才能使用
-components: {},
+components: {
+    List,
+    exclusivelist
+},
 data() {
 //这里存放数据
 return {
@@ -542,6 +573,51 @@ return {
                 }
             ]
         }
+    ],
+    // 链路情况
+    data8: [
+        {city : "太原", value : 1},
+        {city : "长治", value : 1},
+        {city : "朔州", value : 1},
+        {city : "运城", value : 1},
+        {city : "吕梁", value : 1},
+        {city : "大同", value : 1},
+        {city : "晋城", value : 1},
+        {city : "晋中", value : 1},
+        {city : "临汾", value : 1},
+        {city : "忻州", value : 1},
+        {city : "阳泉", value : 1},
+    ],
+    // 处警反馈情况
+    data9 :[
+        {city : "太原", value :"ty"},
+        {city : "长治", value :"cz"},
+        {city : "朔州", value :"sz"},
+        {city : "运城", value :"yc"},
+        {city : "吕梁", value :"ll"},
+        {city : "大同", value :"dt"},
+        {city : "晋城", value :"jc"},
+        {city : "晋中", value :"jz"},
+        {city : "临汾", value :"lf"},
+        {city : "忻州", value :"xz"},
+        {city : "阳泉", value :"yq"},
+    ],
+    data10: [
+        { classify: '接警量', ty: 6666,  cz: 8888,  sz:22222,  yc:23145,    ll:23145, dt:23145, jc:23145,jz:23145,lf:23145, xz:23145, yq:23145 }, 
+        { classify: '处警量', ty: 6666,  cz: 8888,  sz:22222,  yc:23145,    ll:23145, dt:23145, jc:23145,jz:23145,lf:23145, xz:23145, yq:23145 }, 
+        { classify: '反馈量', ty: 6666,  cz: 8888,  sz:22222,  yc:23145,    ll:23145, dt:23145, jc:23145,jz:23145,lf:23145, xz:23145, yq:23145 }, 
+        { classify: '反馈率', ty: 6666,  cz: 8888,  sz:22222,  yc:23145,    ll:23145, dt:23145, jc:23145,jz:23145,lf:23145, xz:23145, yq:23145 }, 
+    ],
+    // 重大警情表
+    data11 :[
+        {types : "盗窃",value : "steal"},
+        {types : "诈骗",value : "swindle"},
+        {types : "强奸",value : "rape"},
+        {types : "绑架",value : "kidnap"},
+        {types : "抢劫",value : "rob"}
+    ],
+    data12 : [
+        {classify:"同比"}
     ]
 
 
@@ -556,7 +632,6 @@ watch: {},
 methods: {
     // 今日警情地域分布
     echarts1() {
-        
         let cityArr = [];//声明存放城市的数组
         let valueArr = []; //声明存放数据的数组
         let mycharts = echarts.init(document.getElementById('area')); //echarts初始化
@@ -573,7 +648,7 @@ methods: {
             //     text: '今日警情地域分布'
             // },
             //背景色
-            background: '#fff',
+            backgroundColor: '#fff',
             //x轴
             xAxis: [
                 {
@@ -586,18 +661,18 @@ methods: {
                         //显示
                         show: true,
                         //字体大小
-                        fontSize: 16,
+                        fontSize: 14,
                         //字体颜色
-                        color: '#333'
+                        color: '#333',
                     },
                     //x轴轴线设置
                     axisLine: {
-                        //样式设置
-                        lineStyle: {
-                            //颜色
-                            color: '#dddddd'
-                        }
+                        //不显示
+                        show:false
                     },
+                    axisTick: {
+                        show: false
+                    }
                 }],
             //y轴
             yAxis: [
@@ -610,23 +685,40 @@ methods: {
                     type: 'value',
                     //数值间隔
                     interval: 600,
-                    //最大值
-                    max:3000,
                     //y轴字体设置
                     axisLabel: {
                         show: true,
-                        fontSize: 16,
-                        color: '#333',
+                        fontSize: 14,
+                        color: '#333'
                     },
                     //y轴轴线设置
                     axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
+                        //不现实
+                        show:false
                     },
                     //y轴分隔线设置
                     splitLine: {
                         //不显示
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    }
+                }, {
+                    axisLabel: {
+                        show: false
+                    },
+                    //y轴轴线设置
+                    axisLine: {
+                        show: false
+                    },
+                    //y轴分隔线设置
+                    splitLine: {
+                        //不显示
+                        show: false
+                    },
+                    //y轴刻度设置
+                    axisTick: {
                         show: false
                     }
                 }
@@ -685,10 +777,10 @@ methods: {
                     type: 'bar',
                     barWidth: '50%',
                     //设置柱子以哪个y轴位准，1表示第二个y轴，即y轴设置中的第二个对象
-                    yAxisIndex: 0,
+                    yAxisIndex: 1,
                     //两个柱子间的距离
                     barGap: '-220%',
-                    data: [3000, 3000, 3000, 3000, 3000],
+                    data: [100, 100, 100, 100, 100],
                     itemStyle: {
                         normal: {
                             color: '#e7f7ff'
@@ -703,6 +795,9 @@ methods: {
             //图表外边框
             grid: {
                 show: true,
+                top: 14,
+                bottom: 26,
+                right: 30
             },
             //鼠标移入时的提示
             tooltip: {
@@ -718,11 +813,11 @@ methods: {
                     }
                 },
                 //提示框文字格式
-                formatter: function (prams) {
-                    //prams[0].name横坐标
-                    // prams[0].data数据
-                    // prams[0].seriesName    series里name配置项名
-                    return prams[0].name + ':' + prams[0].data;
+                formatter: function (params) {
+                    //params[0].name横坐标
+                    // params[0].data数据
+                    // params[0].seriesName    series里name配置项名
+                    return params[0].name + ':' + params[0].data;
                 }
             },
             //工具盒
@@ -741,9 +836,9 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right:0,
-                top:50,
-                orient:'vertical'
+                right: 0,
+                top: 20,
+                orient: 'vertical'
             },
         };
         mycharts.setOption(option);
@@ -762,6 +857,7 @@ methods: {
             yDataDaoqie.push(value.value[2].value);
         });
         let option = {
+            backgroundColor: '#fff',
             // title: {
             //     text: '近7日两抢一盗分布',
             // },
@@ -776,11 +872,14 @@ methods: {
                 //图例数据，和series中的name一致
                 data: ['抢夺', '抢劫', '盗窃'],
                 //位置
-                right: 40,
-                top: 80,
+                right: 30,
+                top: 30,
                 //纵向排列
                 orient: 'vertical',
-                height: 100
+                height: 100,
+                textStyle: {
+                    fontSize: 12
+                }
             },
             xAxis: [
                 {
@@ -789,48 +888,34 @@ methods: {
                     axisLabel: {
                         //x坐标轴字体设置
                         show: true,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: '#333'
                     },
                     axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
+                        show:false
                     },
+                    axisTick: {
+                        show: false
+                    }
                 }
             ],
             yAxis: [
                 // 三个柱子，三个对象
                 {
                     type: 'value',
-                    min: 0,
-                    max: 3000,
                     interval: 600,
                     axisLabel: {
                         show: true,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: '#333',
                     },
                     axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
+                        show:false
                     },
                     splitLine: {
                         show: false
-                    }
-                },
-                {
-                    type: 'value',
-                    axisLabel: {
-                        show: false
                     },
-                    axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
-                    },
-                    splitLine: {
+                    axisTick: {
                         show: false
                     }
                 }
@@ -910,7 +995,9 @@ methods: {
             //图表位置，和边框
             grid: {
                 // 图表位置
-                right:120,
+                right: 92,
+                top: 20,
+                bottom: 26,
                 //边框线宽
                 borderWidth: 1,
                 //显示
@@ -929,9 +1016,7 @@ methods: {
                     }
                 },
                 //提示框文字格式
-                formatter: function (prams) {
-                    return prams[0].name+'<br>'+prams[0].seriesName + ':' + prams[0].data;
-                },
+                formatter: '{b0}:<br />{a0}:{c0}<br>{a1}:{c1}<br>{a2}:{c2}'
             },
             toolbox: {
                 //显示
@@ -948,15 +1033,15 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right:0,
-                top:50,
-                orient:'vertical'
+                right: 0,
+                top: 20,
+                orient: 'vertical'
             },
         };
         mycharts.setOption(option);
     },
     // 今日警情类别分布
-     echarts2() {
+      echarts2() {
         let mycharts = echarts.init(document.getElementById('type'));
         let xData = [];
         let yData = [];
@@ -970,21 +1055,22 @@ methods: {
             // title: {
             //     text: '今日警情类别分布'
             // },
-            background: '#fff',
+            backgroundColor: '#fff',
             xAxis: [
                 {
                     type: 'category',
                     data: xData,
                     axisLabel: {
                         show: true,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: '#333'
                     },
                     axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
+                        show:false
                     },
+                    axisTick: {
+                        show: false
+                    }
                 }
             ],
             yAxis: [{
@@ -993,16 +1079,17 @@ methods: {
                 interval: 400,
                 axisLabel: {
                     show: true,
-                    fontSize: 16,
-                    color: '#333',
+                    fontSize: 14,
+                    color: '#333'
                 },
                 axisLine: {
-                    lineStyle: {
-                        color: '#dddddd'
-                    }
+                    show:false
                 },
                 splitLine: {
                     show: true
+                },
+                axisTick: {
+                    show: false
                 }
             }],
             series: [{
@@ -1031,7 +1118,10 @@ methods: {
                 zlevel: 1,
             }],
             grid: {
-                show: true
+                show: true,
+                top: 14,
+                bottom: 26,
+                right: 30
             },
             tooltip: {
                 //触发类型：轴线，折线和柱状图一般使用axis
@@ -1046,8 +1136,8 @@ methods: {
                     }
                 },
                 //提示框文字格式
-                formatter: function (prams) {
-                    return prams[0].name + ':' + prams[0].data;
+                formatter: function (params) {
+                    return params[0].name + ':' + params[0].data;
                 }
             },
             toolbox: {
@@ -1065,9 +1155,9 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right:0,
-                top:50,
-                orient:'vertical'
+                right: 0,
+                top: 20,
+                orient: 'vertical'
             },
         };
         mycharts.setOption(option);
@@ -1086,6 +1176,7 @@ methods: {
             yDataQvnian.push(value.value);
         });
         let option = {
+            backgroundColor: '#fff',
             color: [new echarts.graphic.LinearGradient(
                 //右，下，左，上
                 0, 0, 1, 0, [{
@@ -1112,20 +1203,25 @@ methods: {
             xAxis: {
                 type: 'category',
                 data: xData,
+                name: '（周）',
+                nameTextStyle: {
+                    color: "#333"
+                },
                 min: 0,
                 //图表留白，图表和横坐标轴之间的距离
                 boundaryGap: false,
                 axisLabel: {
                     //x坐标轴字体设置
                     show: true,
-                    fontSize: 16,
+                    fontSize: 14,
                     color: '#333'
                 },
                 axisLine: {
-                    lineStyle: {
-                        color: '#dddddd'
-                    }
+                    show:false
                 },
+                axisTick: {
+                    show: false
+                }
             },
             yAxis: [{
                 type: 'value',
@@ -1134,40 +1230,26 @@ methods: {
                 interval: 5000,
                 axisLabel: {
                     show: true,
-                    fontSize: 16,
+                    fontSize: 14,
                     color: '#333',
                 },
                 axisLine: {
-                    lineStyle: {
-                        color: '#dddddd'
-                    }
+                    show:false
                 },
                 splitLine: {
                     show: false
+                },
+                axisTick: {
+                    show: false
                 }
-            },
-                {
-                    type: 'value',
-                    axisLabel: {
-                        show: false
-                    },
-                    axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
-                    },
-                    splitLine: {
-                        show: false
-                    }
-                }
-            ],
+            }],
             legend: {
                 icon: "rect",   //  字段控制形状  类型包括 circle，rect,line，roundRect，triangle，diamond，pin，arrow，none
-                itemWidth: 30,  // 设置宽度
-                itemHeight: 12, // 设置高度
+                itemWidth: 23,  // 设置宽度
+                itemHeight: 8, // 设置高度
                 data: ['当前', '同比'],
-                right: 40,
-                top: 80,
+                right: 30,
+                top: 30,
                 orient: 'vertical',
                 height: 100,
             },
@@ -1245,11 +1327,14 @@ methods: {
                 }],
             grid: {
                 // 图表位置
-                right:120,
+                top: 14,
+                left: 65,
+                bottom: 26,
+                right: 100,
                 //边框线宽
                 borderWidth: 1,
                 //显示
-                show: true
+                show: true,
             },
             tooltip: {
                 //触发类型：轴线，折线和柱状图一般使用axis
@@ -1264,8 +1349,8 @@ methods: {
                     }
                 },
                 //提示框文字格式
-                formatter: function (prams) {
-                    return '第'+prams[0].name+'周<br>'+prams[0].seriesName + ':' + prams[0].data+'<br>'+prams[1].seriesName + ':' + prams[1].data;
+                formatter: function (params) {
+                    return '第' + params[0].name + '周<br>' + params[0].seriesName + ':' + params[0].data + '<br>' + params[1].seriesName + ':' + params[1].data;
                 }
             },
             toolbox: {
@@ -1283,9 +1368,9 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right:0,
-                top:50,
-                orient:'vertical'
+                right: 0,
+                top: 20,
+                orient: 'vertical'
             },
         };
         mycharts.setOption(option);
@@ -1298,23 +1383,37 @@ methods: {
         let value = that.data5[0];
         let value1 = that.data5[1];
         let value2 = that.data5[2];
+        let color = ['#b70e1b', '#e6c300', '#25286e'];
         let option = {
+            backgroundColor: '#fff',
             title: [
                 {
                     text: '警情一级分类统计',
-                    left: '4%',
-                    bottom: '10%'
+                    left: '2%',
+                    bottom: '10%',
+                    textStyle: {
+                        color: color[0],
+                        fontSize: 14
+                    }
                 },
                 {
                     text: '警情二级分类统计',
                     left: '35%',
-                    bottom: '10%'
+                    bottom: '10%',
+                    textStyle: {
+                        color: color[1],
+                        fontSize: 14
+                    }
                 },
                 {
                     text: '警情三级分类统计',
-                    left: '65%',
-                    bottom: '10%'
-                }
+                    left: '68%',
+                    bottom: '10%',
+                    textStyle: {
+                        color: color[2],
+                        fontSize: 14
+                    }
+                },
             ],
             series: [
                 {
@@ -1322,31 +1421,30 @@ methods: {
                     type: 'liquidFill',
                     data: [value, value, value],
                     backgroundStyle: {
-                        borderWidth: 3,
-                        borderColor: '#fb5864',
+                        borderWidth: 2,
+                        borderColor: '#fb5e69',
                         color: '#fff'
                     },
                     outline: {
-                        borderDistance: 3, //外部轮廓与图表的距离 数字
+                        borderDistance: 2, //外部轮廓与图表的距离 数字
                         itemStyle: {
-                            borderColor: '#b3000e', //边框的颜色
-                            borderWidth: 3,  //边框的宽度
+                            borderColor: color[0], //边框的颜色
+                            borderWidth: 2,  //边框的宽度
                             shadowBlur: 0
                         }
                     },
-                    color: ['rgba(255,0,0,0.5)', 'rgba(255,0,0,0.4)', 'rgba(255,0,0,0.3)', 'rgba(255,0,0,0.2)'],//水波的颜色 对应的是data里面值
-                    center: ['14%', '50%'],
+                    color: [color[0], 'rgba(179,0,14,0.7)', 'rgba(179,0,14,0.4)', 'rgba(179,0,14,0.2)'],//水波的颜色 对应的是data里面值
+                    center: ['15%', '40%'],
                     itemStyle: {
                         opacity: 0.5,//波浪的透明度
-                        shadowBlur: 10,//波浪的阴影范围
-                        shadowColor: 'rgb(255,0,0)'//阴影颜色
+                        shadowBlur: 0,//波浪的阴影范围
                     },
                     label: {
                         normal: {
                             position: ['50%', '30%'],
                             formatter: (value * 100).toFixed(1) + '%',
                             textStyle: {
-                                fontSize: 30,
+                                fontSize: 16,
                             },
                         }
                     }
@@ -1356,31 +1454,30 @@ methods: {
                     type: 'liquidFill',
                     data: [value1, value1, value1],
                     backgroundStyle: {
-                        borderWidth: 3,
-                        borderColor: '#daec63',
+                        borderWidth: 2,
+                        borderColor: '#daec62',
                         color: '#fff'
                     },
                     outline: {
-                        borderDistance: 3, //外部轮廓与图表的距离 数字
+                        borderDistance: 2, //外部轮廓与图表的距离 数字
                         itemStyle: {
-                            borderColor: '#eed651', //边框的颜色
-                            borderWidth: 3,  //边框的宽度
+                            borderColor: color[1], //边框的颜色
+                            borderWidth: 2,  //边框的宽度
                             shadowBlur: 0
                         }
                     },
-                    color: ['rgb(230,226,100,0.5)', 'rgba(230,226,100,0.4)', 'rgba(230,226,100,0.3)', 'rgba(230,226,100,0.2)'],//水波的颜色 对应的是data里面值
-                    center: ['45%', '50%'],
+                    color: [color[1], 'rgba(230,226,100,0.7)', 'rgba(230,226,100,0.4)', 'rgba(230,226,100,0.2)'],//水波的颜色 对应的是data里面值
+                    center: ['47.5%', '40%'],
                     itemStyle: {
                         opacity: 0.5,//波浪的透明度
-                        shadowBlur: 10,//波浪的阴影范围
-                        shadowColor: 'rgb(255,255,0)'//阴影颜色
+                        shadowBlur: 0,//波浪的阴影范围
                     },
                     label: {
                         normal: {
                             position: ['50%', '30%'],
                             formatter: (value1 * 100).toFixed(1) + '%',
                             textStyle: {
-                                fontSize: 30,
+                                fontSize: 16,
                             },
                         }
                     }
@@ -1390,31 +1487,30 @@ methods: {
                     type: 'liquidFill',
                     data: [value2, value2, value2],
                     backgroundStyle: {
-                        borderWidth: 3,
+                        borderWidth: 2,
                         borderColor: '#89aae4',
                         color: '#fff'
                     },
                     outline: {
-                        borderDistance: 3, //外部轮廓与图表的距离 数字
+                        borderDistance: 2, //外部轮廓与图表的距离 数字
                         itemStyle: {
-                            borderColor: '#25286e', //边框的颜色
-                            borderWidth: 3,  //边框的宽度
+                            borderColor: color[2], //边框的颜色
+                            borderWidth: 2,  //边框的宽度
                             shadowBlur: 0
                         }
                     },
-                    color: ['rgb(37,40,110,0.5)', 'rgba(37,40,110,0.4)', 'rgba(37,40,110,0.3)', 'rgba(37,40,110,0.2)'],//水波的颜色 对应的是data里面值
-                    center: ['75%', '50%'],
+                    color: [color[2], 'rgba(37,40,110,0.4)', 'rgba(37,40,110,0.3)', 'rgba(37,40,110,0.2)'],//水波的颜色 对应的是data里面值
+                    center: ['80%', '40%'],
                     itemStyle: {
                         opacity: 0.5,//波浪的透明度
-                        shadowBlur: 10,//波浪的阴影范围
-                        shadowColor: 'rgb(86,90,255)'//阴影颜色
+                        shadowBlur: 0,//波浪的阴影范围
                     },
                     label: {
                         normal: {
                             position: ['50%', '30%'],
                             formatter: (value2 * 100).toFixed(1) + '%',
                             textStyle: {
-                                fontSize: 30,
+                                fontSize: 16,
                             },
                         }
                     }
@@ -1431,7 +1527,7 @@ methods: {
                     saveAsImage: {}
                 },
                 right: 0,
-                top: 50,
+                top: 20,
                 orient: 'vertical'
             },
         };
@@ -1445,43 +1541,65 @@ methods: {
         let xData = [];
         let yData = [];
         let myColor = ['#dee2ff', '#ced5ff', '#b1bbff', '#94a2ff', '#7d7eff', '#7a68ff', '#5b3cfe',]
+        let sum = 0;
         this.data6.forEach(function (value) {
             yData.push(value.type);
-            xData.push(value.value)
+            xData.push(value.value);
+            sum += value.value;
         });
         let option = {
-            // title: [ {
-            //     text: '报警量',
-            //     left: 300,
-            //     top: 40
-            // }, {
-            //     text: '抽取接警处理统计占比',
-            //     left: 720,
-            //     bottom: 40
-            // }],
+            backgroundColor: '#fff',
+            title: [{
+                text: '报警量' + sum,
+                left: 150,
+                top: 6,
+                textStyle: {
+                    fontSize: 14,
+                    fontWeight: 'normal',
+                    color: '#25286e'
+                }
+            }, {
+                text: '抽取接警处理统计占比',
+                right: 40,
+                bottom: 20,
+                textStyle: {
+                    fontSize: 14,
+                    color:'#333'
+                }
+            }],
             yAxis: {
                 type: 'category',
                 data: yData,
                 axisLabel: {
                     //x坐标轴字体设置
                     show: true,
-                    fontSize: 16,
-                    color: '#333'
+                    fontSize: 12,
+                    color: '#333',
+                    formatter: function (val) {
+                        if (val.length > 4) {
+                            val = val.slice(0, 4);
+                            return val + '...';
+                        } else {
+                            return val
+                        }
+                    },
                 },
                 axisLine: {
                     lineStyle: {
                         color: '#dddddd'
                     }
-                },
+                }
             },
-            xAxis: {
+            xAxis: [{
                 type: 'value',
                 data: xData,
                 interval: 100,
+                min: 0,
+                max: 1000,
                 axisLabel: {
                     //x坐标轴字体设置
                     show: true,
-                    fontSize: 16,
+                    fontSize: 12,
                     color: '#333'
                 },
                 axisLine: {
@@ -1489,14 +1607,44 @@ methods: {
                         color: '#dddddd'
                     }
                 },
-            },
+                splitLine: {
+                    show: false
+                },
+            }, {
+                axisLabel: {
+                    show: false,
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            }],
             series: [{
                 name: '报警量',
                 type: 'bar',
-                barWidth: '50%',
+                barWidth: '70%',
                 data: xData,
                 itemStyle: {
                     normal: {
+                        label: {
+                            show: true, //开启显示
+                            position: 'right', //在上方显示
+                            textStyle: { //数值样式
+                                color: '#333',
+                                fontSize: 12
+                            }
+                        },
+                        color: function (params) {
+                            let num = myColor.length;
+                            return myColor[params.dataIndex % num]
+                        },
+                    },
+                    emphasis: {
                         label: {
                             show: true, //开启显示
                             position: 'right', //在上方显示
@@ -1513,10 +1661,28 @@ methods: {
                 },
                 zlevel: 1,
             }, {
+                name: '背景',
+                type: 'bar',
+                barWidth: '70%',
+                //设置柱子以哪个y轴位准，1表示第二个y轴，即y轴设置中的第二个对象
+                xAxisIndex: 1,
+                //两个柱子间的距离
+                barGap: '-100%',
+                data: [100, 100, 100, 100, 100],
+                itemStyle: {
+                    normal: {
+                        color: '#f2f2f2'
+                    },
+                    emphasis: {
+                        color: '#f2f2f2'
+                    }
+                },
+                zlevel: 0
+            }, {
                 name: '报警量',
                 type: 'pie',
                 radius: [0, '40%'],
-                center: ["75%", '45%'],
+                center: ["80%", '45%'],
                 data: Object.keys(that.data6_1).map(function (key) {
                     return {
                         name: key,
@@ -1552,10 +1718,10 @@ methods: {
                 }
             }],
             grid: [{
-                left: 100,
-                show: true,
                 width: "50%",
-                top: 80
+                top: 30,
+                bottom: 26,
+                left: 80
             }],
             tooltip: {
                 //触发类型：轴线，折线和柱状图一般使用axis
@@ -1570,8 +1736,8 @@ methods: {
                     }
                 },
                 //提示框文字格式
-                formatter: function (prams) {
-                    return prams[0].name + ':' + prams[0].data;
+                formatter: function (params) {
+                    return params[0].name + ':' + params[0].data;
                 }
             },
             toolbox: {
@@ -1589,7 +1755,7 @@ methods: {
                     saveAsImage: {},
                 },
                 right: 0,
-                top: 50,
+                top: 20,
                 orient: 'vertical'
             },
         };
@@ -1646,16 +1812,17 @@ methods: {
                     break;
             }
         });
-        let daoqieMax=Math.max(...daoqie);
-        let zhapianMax=Math.max(...zhapian);
-        let qiangjianMax=Math.max(...qiangjian);
-        let bangjiaMax=Math.max(...bangjia);
-        let qiangjieMax=Math.max(...qiangjie);
+        let daoqieMax = Math.max(...daoqie);
+        let zhapianMax = Math.max(...zhapian);
+        let qiangjianMax = Math.max(...qiangjian);
+        let bangjiaMax = Math.max(...bangjia);
+        let qiangjieMax = Math.max(...qiangjie);
         let option = {
             // title: {
             //     text: '近7日两抢一盗分布',
             // },
             //图例设置
+            backgroundColor: '#fff',
             legend: {
                 // 字段控制形状  类型包括 circle，rect,line，roundRect，triangle，diamond，pin，arrow，none
                 icon: "rect",
@@ -1666,8 +1833,8 @@ methods: {
                 //图例数据，和series中的name一致
                 data: ['当前', '同比', '环比'],
                 //位置
-                right: 40,
-                top: 80,
+                right: 30,
+                top: 30,
                 //纵向排列
                 orient: 'vertical',
                 height: 100
@@ -1679,14 +1846,15 @@ methods: {
                     axisLabel: {
                         //x坐标轴字体设置
                         show: true,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: '#333'
                     },
                     axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
+                        show:false
                     },
+                    axisTick:{
+                        show:false
+                    }
                 }
             ],
             yAxis: [
@@ -1698,16 +1866,17 @@ methods: {
                     interval: 400,
                     axisLabel: {
                         show: true,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: '#333',
                     },
                     axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
+                        show:false
                     },
                     splitLine: {
                         show: false
+                    },
+                    axisTick:{
+                        show:false
                     }
                 },
                 {
@@ -1716,12 +1885,13 @@ methods: {
                         show: false
                     },
                     axisLine: {
-                        lineStyle: {
-                            color: '#dddddd'
-                        }
+                        show:false
                     },
                     splitLine: {
                         show: false
+                    },
+                    axisTick:{
+                        show:false
                     }
                 }
             ],
@@ -1757,22 +1927,22 @@ methods: {
                             value: daoqieMax,
                             xAxis: 0,
                             yAxis: daoqieMax
-                        },{
+                        }, {
                             name: '诈骗',
                             value: zhapianMax,
                             xAxis: 1,
                             yAxis: zhapianMax
-                        },{
+                        }, {
                             name: '强奸',
                             value: qiangjianMax,
                             xAxis: 2,
                             yAxis: qiangjianMax
-                        },{
+                        }, {
                             name: '绑架',
                             value: bangjiaMax,
                             xAxis: 3,
                             yAxis: bangjiaMax
-                        },{
+                        }, {
                             name: '抢劫',
                             value: qiangjieMax,
                             xAxis: 4,
@@ -1834,7 +2004,9 @@ methods: {
             //图表位置，和边框
             grid: {
                 // 图表位置
-                right: 120,
+                right: 92,
+                top: 20,
+                bottom: 26,
                 //边框线宽
                 borderWidth: 1,
                 //显示
@@ -1853,9 +2025,7 @@ methods: {
                     }
                 },
                 //提示框文字格式
-                formatter: function (prams) {
-                    return prams[0].name + '<br>' + prams[0].seriesName + ':' + prams[0].data;
-                },
+                formatter: '{b0}:<br />{a0}:{c0}<br>{a1}:{c1}<br>{a2}:{c2}',
             },
             toolbox: {
                 //显示
@@ -1873,7 +2043,7 @@ methods: {
                 },
                 //位置
                 right: 0,
-                top: 50,
+                top: 20,
                 orient: 'vertical'
             },
         };

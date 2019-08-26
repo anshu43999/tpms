@@ -3,12 +3,10 @@
 		<el-header>
 			<Tpms-header></Tpms-header>
 		</el-header>
-		<el-container>
+		<el-container style="min-height:100%;">
 			<Tpms-sidebar></Tpms-sidebar>
-			<el-main class="Sinograinrelative" style="min-height: 100%;">
-				
+			<el-main class="Sinograinrelative" style="min-height:100%; ">
 					<router-view></router-view>
-				<!--</transition>-->
 			</el-main>
 		</el-container>
 		<iframe id="fordownload" style="display:none"></iframe>
