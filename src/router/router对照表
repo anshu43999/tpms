@@ -1,0 +1,35 @@
+首页     /index/home
+警情查询     /index/AlarmQuery/    
+    综合单查询         /index/AlarmQuery/Synthesis
+    接警单查询         /index/AlarmQuery/Alarm
+    处警单查询         /index/AlarmQuery/Dispose
+    反馈单查询         /index/AlarmQuery/Feedback
+    抽取情况查询       /index/AlarmQuery/ExtractQuery
+    不合格数据查询     /index/AlarmQuery/NotQualified
+
+警情统计     /index/AlarmStatistics/
+    接警处理类型统计        /index/AlarmStatistics/AlarmType    
+    警种报警情况统计        /index/AlarmStatistics/AlarmKind
+    处警反馈情况统计表      /index/AlarmStatistics/FeedbackForms
+    数据抽取情况统计表      /index/AlarmStatistics/ExtractForms
+    警情三级分类统计        /index/AlarmStatistics/ThreeType
+    案发地址类别统计        /index/AlarmStatistics/Address
+    警情分布情况统计        /index/AlarmStatistics/Distribute
+
+
+
+
+抽取监控     /index/ExtractMonitor/
+    抽取状态               /index/ExtractMonitor/ExtractState
+    当前抽取情况           /index/ExtractMonitor/NowCondition
+    各市数据汇总情况统计    /index/ExtractMonitor/SumStatistics
+
+
+
+
+
+
+统计报表    /index/StatisticsForms/
+    警情统计表          /index/StatisticsForms/JQStatistics
+    警情线索统计表      /index/StatisticsForms/JQThread
+    报警情况统计表      /index/StatisticsForms/AlarmStatistics

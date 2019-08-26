@@ -1,0 +1,125 @@
+.el-header{
+    height:1rem !important;
+    line-height:1rem;
+    padding:0 !important;
+    position:relative;
+    z-index: 6;
+}
+div.header{
+	width:100%;
+	height:100%;
+    background-color: #ffffff;
+	box-shadow: 1px 1px 5px 0px 
+		rgba(121, 121, 121, 0.35);
+}
+div.header .logo{
+	z-index: 999;
+	float:left;
+	height:1rem;
+	width:4.9rem;
+	overflow: hidden;
+	margin-left: 0.4rem;
+	
+}
+div.header .logo img{
+	float: left;
+	margin-top:.25rem; 
+	display: block;
+	height:0.5rem;
+	width:0.5rem;
+	
+}
+div.header .logo p{
+	float: left;
+	display: block;
+	font-size: 0.24rem;
+	color: #fff;
+	font-weight: 550;
+}
+
+
+div.header div.message:after{
+	position:absolute;
+	content:'';
+	right:0;
+	top:0.23rem;
+	bottom:0.23rem;
+	width:2px;
+	background: rgba(158, 176, 195, 0.5);
+}
+/*头部管理员信息*/
+div.header div.headerR{
+	float:right;
+	height:1rem;
+	width:5rem;
+	text-align: right;
+}
+div.header .mphoto{
+	display: inline-block;
+	width:0.4rem;
+	height:0.4rem;
+	/*margin:0.14rem 0.32rem 0 0;*/
+	margin:0 0.32rem 0 0.14rem;
+	border-radius:50%;
+	overflow: hidden;
+	background:#fcb482;
+	vertical-align: middle;
+}
+div.header .mphoto img{
+	width:100%;
+	height:100%;
+	display: block;
+	/*vertical-align: middle;*/
+}
+div.header .user{
+	display: inline;
+	color: #333333;
+	font-size:0.16rem;
+	line-height:0.7rem;
+	vertical-align: middle;
+}
+div.header .line{
+
+	display: inline-block;
+	width:6px;
+	height:0.7rem;
+	margin:0 0.14rem 0 0.24rem;
+	vertical-align: middle;
+}
+
+div.header .warnWrap{
+	display: inline-block;
+	line-height: 1rem;
+	width: .5rem;
+	height: .5rem;
+	border-radius: 50%;
+	background-color: #fff;
+	vertical-align: middle; 
+	position: relative;
+	overflow: hidden;
+}
+div.header .warnWrap i{
+	position:absolute;
+	left: .02rem;
+	top: .07rem;
+	display: inline-block !important;
+	width: .4rem;
+	height: .4rem;
+	font-size: .32rem;
+	line-height: 1;
+	margin: 0 !important;
+	margin-left:.1rem; 
+	background-color: #fff;
+	/* border-radius: .14rem */
+
+}
+
+
+div.header .exitwrap .exit{
+	cursor:pointer;
+	display: block;
+	width:0.71rem;
+	height:0.3rem;
+	vertical-align: middle;
+}
+
