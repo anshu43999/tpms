@@ -118,7 +118,7 @@ export default {
       },
       navlist: [
         {
-          icon: "icon-icon_jingqingchaxun",
+          icon: "icon-chaxun",
           title: "警情查询",
           linkto: "",
           level: 2,

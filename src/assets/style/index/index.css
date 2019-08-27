@@ -53,13 +53,13 @@ div.header div.headerR{
 	height:1rem;
 	width:5rem;
 	text-align: right;
+	padding-right: 0.5rem;
 }
 div.header .mphoto{
 	display: inline-block;
 	width:0.4rem;
 	height:0.4rem;
-	/*margin:0.14rem 0.32rem 0 0;*/
-	margin:0 0.32rem 0 0.14rem;
+	margin:0 0.1rem 0 0.14rem;
 	border-radius:50%;
 	overflow: hidden;
 	background:#fcb482;
@@ -71,13 +71,7 @@ div.header .mphoto img{
 	display: block;
 	/*vertical-align: middle;*/
 }
-div.header .user{
-	display: inline;
-	color: #333333;
-	font-size:0.16rem;
-	line-height:0.7rem;
-	vertical-align: middle;
-}
+
 div.header .line{
 
 	display: inline-block;
@@ -90,8 +84,8 @@ div.header .line{
 div.header .warnWrap{
 	display: inline-block;
 	line-height: 1rem;
-	width: .5rem;
-	height: .5rem;
+	width: .4rem;
+	height: .4rem;
 	border-radius: 50%;
 	background-color: #fff;
 	vertical-align: middle; 
@@ -100,12 +94,12 @@ div.header .warnWrap{
 }
 div.header .warnWrap i{
 	position:absolute;
-	left: .02rem;
-	top: .07rem;
+	left: 0.05rem;
+	top: 0.05rem;
 	display: inline-block !important;
-	width: .4rem;
-	height: .4rem;
-	font-size: .32rem;
+	width: .3rem;
+	height: .3rem;
+	font-size: .3rem;
 	line-height: 1;
 	margin: 0 !important;
 	margin-left:.1rem; 
@@ -113,7 +107,7 @@ div.header .warnWrap i{
 	/* border-radius: .14rem */
 
 }
-
+/* div.header .user */
 
 div.header .exitwrap .exit{
 	cursor:pointer;
@@ -122,4 +116,13 @@ div.header .exitwrap .exit{
 	height:0.3rem;
 	vertical-align: middle;
 }
+
+
+.el-dropdown-link {
+    cursor: pointer;
+    color: #fff;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
 

@@ -18,6 +18,19 @@
 
    
     <!--省级、游客  今日警情地域分布  合   近七日两抢一盗分布-->
+    <div class="box5">
+        <div class="box2_title">
+            <ul class="box2_title_list">
+                <li :class="[ variate_one===1 ?'btn_active': 'btn_list1' ]" @click="cut([1,1])"  ><i class="iconfont icon-fankui"></i>今日警情地域分布</li>
+                <li :class="[ variate_one===2 ?'btn_active': 'btn_list2' ]" @click="cut([2,1])"><i class="iconfont icon-chouqu"></i>近七日两抢一盗分布</li>
+            </ul> 
+        </div>
+        <div class="data_context" style="height:2.87rem;position: relative; margin-right:1rem" >
+            <div  :class="variate_one===1 ? 'startShow':'startHide' "   id="area2" ref="area2" style="width: 100%;height: 100%; position: absolute "></div>
+            <div  :class="variate_one===2 ? 'startShow':'startHide' "  id="qiangdao2" ref="qiangdao2" style="width: 100%;height: 100% ; position: absolute ;left:0;top:0 "></div>
+        </div>
+    </div>
+
 
 
 
@@ -36,14 +49,13 @@
         <div class="dyfb box_common" >
             <div class="common_title">   <i class="iconfont icon-qiangjie"></i>  近七日两抢一盗分布</div>
             <div class="data_context">
-                <div id="qiangdao" style="width: 100%;height: 100%"></div>
+                <div id="qiangdao" ref='qiangdao' style="width: 100%;height: 100%"></div>
                 <!-- <button @click="save($event)">保存</button> -->
             </div>
             <!-- <button @click="save($event)">保存</button> -->
         </div>
     </div>
-
-        
+ 
 
 
     <!--省、市、游客   今日警情类别分布 --><!-- 近期警情同比走势图 -->
@@ -68,14 +80,6 @@
         </div>
     </div>
     
-
-
-
-
-
-
-
-
 
    
     <!--省   游客    链路实时监控 -->
@@ -105,14 +109,11 @@
     </div>
 
 
-
-
-
     <!-- 省、市     警情三级分类统计 -->   <!-- 抽取接警处理统计 -->
     <div class="box">
         <div class="dyfb box_common" style="width:6.5rem">
         <div class="common_title"> <i class="iconfont icon-dengji"></i>  警情三级分类统计</div>
-        <div class="data_context"   style="width:6.5rem">
+        <div class="data_context"   style="width:6.4rem">
            <div id="liquidFill" style="width: 100%;height: 100%"></div>
             <!-- <button @click="save($event)">保存</button> -->
             </div>
@@ -120,7 +121,7 @@
 
         <div class="dyfb box_common" style="width:8.5rem">
             <div class="common_title">   <i class="iconfont icon-baojingchuli"></i>  抽取接警处理统计</div>
-            <div class="data_context">
+            <div class="data_context" style="width :100%">
             <div id="jiejingchuli" style="width: 100%;height: 100%"></div>
                 <!-- <button @click="save($event)">保存</button> -->
             </div>
@@ -129,15 +130,13 @@
     
 
 
-
-
    <!--省、市  高发刑事警情 -->
     <div class="box">
         <div class="dyfb box_common" style="width:100%">
             <div class="common_title">  <i class="iconfont icon-jingqing"></i>高发刑事警情</div>
 
             <div class="gfjq_list" style="width:100%">
-                <div class="data_context" style="width:7rem">
+                <div class="data_context" style="width:7rem; margin-bottom : .24rem">
                     <div id="gaofajingqing" style="width: 100%;height: 100%"></div>
                     <!-- <button @click="save($event)">保存</button> -->
                 </div>
@@ -153,11 +152,23 @@
     </div>
 
 
-
    <!--省、游客 处警反馈情况 -->
    <div class="box2">
-        <div class="box2_title">处警反馈情况</div>
+        <div class="box2_title">
+            <ul class="box2_title_list">
+                <li :class="[ variate_two===1 ?'btn_active': 'btn_list1' ]" @click="cut([1,2])"><i class="iconfont icon-fankui"></i>处警反馈情况</li>
+                <li :class="[ variate_two===2 ?'btn_active': 'btn_list2' ]" @click="cut([2,2])"><i class="iconfont icon-chouqu"></i>数据抽取情况</li>
+                <li :class="[ variate_two===3 ?'btn_active': 'btn_list3' ]" @click="cut([3,2])"><i class="iconfont icon-shujuzhiliang"></i>数据质量情况</li>
+            </ul>
+        </div>
         <div class="box2_wraplist">
+
+                <ul class="box2_title_list">
+                    <li :class="[ variate_three===1 ?'btn_active': 'btn_list1' ]"  @click="cut([1,3])">今日</li>
+                    <li :class="[ variate_three===2 ?'btn_active': 'btn_list2' ]"  @click="cut([2,3])">当月</li>
+                    <li :class="[ variate_three===3 ?'btn_active': 'btn_list3' ]"  @click="cut([3,3])">今年</li>
+                </ul>
+
             <List :data9='data9' :data10 ='data10'></List>
         </div>   
         
@@ -240,19 +251,19 @@ return {
 
     ],
     qsjqBg : [ 
-        "static/images/index/a1.gif", 
-        "static/images/index/a2.gif", 
-        "static/images/index/a3.gif",
-        "static/images/index/a4.gif",
-        "static/images/index/a5.gif",
-        "static/images/index/a6.gif",
-        "static/images/index/a7.gif",
-        "static/images/index/a8.gif",
-        "static/images/index/a9.gif",
-        "static/images/index/a10.gif",
-        "static/images/index/a11.gif",
-        "static/images/index/a12.gif",
-        "static/images/index/a13.gif",
+        "static/images/index/a1.png", 
+        "static/images/index/a2.png", 
+        "static/images/index/a3.png",
+        "static/images/index/a4.png",
+        "static/images/index/a5.png",
+        "static/images/index/a6.png",
+        "static/images/index/a7.png",
+        "static/images/index/a8.png",
+        "static/images/index/a9.png",
+        "static/images/index/a10.png",
+        "static/images/index/a11.png",
+        "static/images/index/a12.png",
+        "static/images/index/a13.png",
         "static/images/index/a14.png",
     ],
     // 今日警情地域分布
@@ -263,93 +274,145 @@ return {
         {city: '娄烦县',value: 293},
         {city: '古交市', value: 301}
     ],
-
+    data111:[
+        {city : "太原", value :1000},
+        {city : "长治", value :424},
+        {city : "朔州", value :4},
+        {city : "运城", value :312},
+        {city : "大同", value :1000},
+        {city : "晋城", value :52},
+        {city : "晋中", value :1000},
+        {city : "临汾", value :1000},
+        {city : "忻州", value :5},
+        {city : "阳泉", value :1000},
+    ],
     // 近七日两抢一盗分布
     data3: [
         {
             city: '太原',
-            value: [
-                { type: '抢夺',
-                    value: 2400
-                },
-                {
-                    type: '抢劫',
-                    value: 1300,
-                },
-                {
-                    type: '盗窃',
-                    value: 1500
-                }
+            value: [  
+                { type: '抢夺', value: 2400 },
+                {type: '抢劫', value: 1300, },
+                { type: '盗窃',value: 1500 }
             ]
         },
         {
             city: '清徐县',
             value: [
-                {
-                    type: '抢夺',
-                    value: 1100
-                },
-                {
-                    type: '抢劫',
-                    value: 300,
-                },
-                {
-                    type: '盗窃',
-                    value: 100
-                }
+                { type: '抢夺',value: 1100 },
+                { type: '抢劫', value: 300, },
+                {type: '盗窃',value: 100}
             ]
         },
         {
             city: '阳曲县',
             value: [
-                {
-                    type: '抢夺',
-                    value: 300
-                },
-                {
-                    type: '抢劫',
-                    value: 500,
-                },
-                {
-                    type: '盗窃',
-                    value: 260
-                }
+                { type: '抢夺',value: 300 },
+                {type: '抢劫',value: 500, },
+                { type: '盗窃', value: 260 }
             ]
         },
         {
             city: '娄烦县',
             value: [
-                {
-                    type: '抢夺',
-                    value: 180
-                },
-                {
-                    type: '抢劫',
-                    value: 300,
-                },
-                {
-                    type: '盗窃',
-                    value: 600
-                }
+                {type: '抢夺', value: 180},
+                { type: '抢劫', value: 300,},
+                { type: '盗窃', value: 600 }
             ]
         },
         {
             city: '古交市',
             value: [
-                {
-                    type: '抢夺',
-                    value: 1000
-                },
-                {
-                    type: '抢劫',
-                    value: 1200,
-                },
-                {
-                    type: '盗窃',
-                    value: 300
-                }
+                {type: '抢夺', value: 1000},
+                { type: '抢劫', value: 1200,},
+                {type: '盗窃', value: 300 }
             ]
         },
+    ],
+    data333:[
+        {
+            city: '太原',
+            value: [  
+                { type: '抢夺', value: 2400 },
+                {type: '抢劫', value: 1300, },
+                { type: '盗窃',value: 1500 }
+            ]
+        },
+        {
+            city: '长治',
+            value: [
+                { type: '抢夺',value: 1100 },
+                { type: '抢劫', value: 300, },
+                {type: '盗窃',value: 100}
+            ]
+        },
+        {
+            city: '朔州',
+            value: [
+                { type: '抢夺',value: 300 },
+                {type: '抢劫',value: 500, },
+                { type: '盗窃', value: 260 }
+            ]
+        },
+        {
+            city: '运城',
+            value: [
+                {type: '抢夺', value: 180},
+                { type: '抢劫', value: 300,},
+                { type: '盗窃', value: 600 }
+            ]
+        },
+        {
+            city: '大同',
+            value: [
+                {type: '抢夺', value: 1000},
+                { type: '抢劫', value: 1200,},
+                {type: '盗窃', value: 300 }
+            ]
+        },
+        {
+            city: '晋城',
+            value: [
+                {type: '抢夺', value: 1000},
+                { type: '抢劫', value: 1200,},
+                {type: '盗窃', value: 300 }
+            ]
+        },
+        {
+            city: '晋中',
+            value: [
+                {type: '抢夺', value: 1000},
+                { type: '抢劫', value: 1200,},
+                {type: '盗窃', value: 300 }
+            ]
+        },
+        {
+            city: '临汾',
+            value: [
+                {type: '抢夺', value: 1000},
+                { type: '抢劫', value: 1200,},
+                {type: '盗窃', value: 300 }
+            ]
+        },
+        {
+            city: '忻州',
+            value: [
+                {type: '抢夺', value: 1000},
+                { type: '抢劫', value: 1200,},
+                {type: '盗窃', value: 300 }
+            ]
+        },
+        {
+            city: '阳泉',
+            value: [
+                {type: '抢夺', value: 1000},
+                { type: '抢劫', value: 1200,},
+                {type: '盗窃', value: 300 }
+            ]
+        }
+
+        
+
     ],
     // 今日警情类别分布
     data2: [
@@ -444,7 +507,7 @@ return {
         }
     ],
     // 警情三级分类统计
-    data5: [0.121, 0.283, 0.596],
+    data5: [0.121, 0.283, 0.596,0],
 
     // 抽取接警处理统计
     data6: [
@@ -618,7 +681,11 @@ return {
     ],
     data12 : [
         {classify:"同比"}
-    ]
+    ],
+    // 今日警情地域分布 
+    variate_one : 1,
+    variate_two : 1,
+    variate_three : 1
 
 
 
@@ -631,16 +698,29 @@ watch: {},
 //方法集合
 methods: {
     // 今日警情地域分布
-    echarts1() {
+    echarts1(value) {
         let cityArr = [];//声明存放城市的数组
-        let valueArr = []; //声明存放数据的数组
-        let mycharts = echarts.init(document.getElementById('area')); //echarts初始化
+        let valueArr = []; //声明存放数据的数组area
+        let mycharts = echarts.init(document.getElementById(value)); //echarts初始化
+        // mycharts.resize();
         // let mycharts = echarts.init(this.$refs.area); //echarts初始化
         //把data1的数据分开放在城市和数据的数组里
-        this.data1.forEach(function (value) {
-            cityArr.push(value.city);
-            valueArr.push(value.value);
-        });
+        let array_one = [];
+        if(value == 'area'){
+            this.data1.forEach(function (value) {
+                cityArr.push(value.city);
+                valueArr.push(value.value);
+                array_one.push(100)
+            });
+        }else if(value == 'area2'){
+            this.data111.forEach(function (value) {
+                cityArr.push(value.city);
+                valueArr.push(value.value);
+                array_one.push(100)
+            });
+        };   
+
+
         //配置项
         let option = {
             //标题
@@ -780,7 +860,7 @@ methods: {
                     yAxisIndex: 1,
                     //两个柱子间的距离
                     barGap: '-220%',
-                    data: [100, 100, 100, 100, 100],
+                    data: array_one,
                     itemStyle: {
                         normal: {
                             color: '#e7f7ff'
@@ -795,9 +875,9 @@ methods: {
             //图表外边框
             grid: {
                 show: true,
-                top: 14,
+                top: 42,
                 bottom: 26,
-                right: 30
+                right: 20
             },
             //鼠标移入时的提示
             tooltip: {
@@ -836,26 +916,43 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right: 0,
-                top: 20,
-                orient: 'vertical'
+                right: 20,
+                top: 0,
+                //层级
+                zlevel:999
             },
         };
         mycharts.setOption(option);
     },
     // 近七日两抢一盗分布
-    echarts3() {
-        let mycharts = echarts.init(document.getElementById('qiangdao'));
+    echarts3(value) {
+        
+        console.log(value);
+        let mycharts = echarts.init(document.getElementById(value));
+        mycharts.resize();
+        // let mycharts =echarts.init(this.$refs.value);
+        // console.log(this.$refs.qiangdao2);
         let xData = [];
         let yDataQiangduo = [];
         let yDataQiangjie = [];
         let yDataDaoqie = [];
-        this.data3.forEach(function (value) {
-            xData.push(value.city);
-            yDataQiangduo.push(value.value[0].value);
-            yDataQiangjie.push(value.value[1].value);
-            yDataDaoqie.push(value.value[2].value);
-        });
+        if(value == 'qiangdao'){
+            this.data3.forEach(function (value) {
+                xData.push(value.city);
+                yDataQiangduo.push(value.value[0].value);
+                yDataQiangjie.push(value.value[1].value);
+                yDataDaoqie.push(value.value[2].value);
+            });
+        }else if(value =='qiangdao2'){
+            this.data333.forEach(function (value) {
+                xData.push(value.city);
+                yDataQiangduo.push(value.value[0].value);
+                yDataQiangjie.push(value.value[1].value);
+                yDataDaoqie.push(value.value[2].value);
+            });
+
+        }
+        
         let option = {
             backgroundColor: '#fff',
             // title: {
@@ -872,8 +969,8 @@ methods: {
                 //图例数据，和series中的name一致
                 data: ['抢夺', '抢劫', '盗窃'],
                 //位置
-                right: 30,
-                top: 30,
+                right: 0,
+                top: 40,
                 //纵向排列
                 orient: 'vertical',
                 height: 100,
@@ -924,10 +1021,9 @@ methods: {
                 {
                     name: '抢夺',
                     type: 'bar',
-                    barWidth: '25%',
+                    barWidth: '20%',
                     barGap: 0,
                     data: yDataQiangduo,
-                    zlevel: 999,
                     itemStyle: {
                         normal: {
                             color: new echarts.graphic.LinearGradient(
@@ -948,9 +1044,8 @@ methods: {
                 {
                     name: '抢劫',
                     type: 'bar',
-                    barWidth: '25%',
+                    barWidth: '20%',
                     data: yDataQiangjie,
-                    zlevel: 999,
                     itemStyle: {
                         normal: {
                             color: new echarts.graphic.LinearGradient(
@@ -971,9 +1066,8 @@ methods: {
                 {
                     name: '盗窃',
                     type: 'bar',
-                    barWidth: '25%',
+                    barWidth: '20%',
                     data: yDataDaoqie,
-                    zlevel: 999,
                     itemStyle: {
                         normal: {
                             color: new echarts.graphic.LinearGradient(
@@ -995,8 +1089,8 @@ methods: {
             //图表位置，和边框
             grid: {
                 // 图表位置
-                right: 92,
-                top: 20,
+                right: 60,
+                top: 42,
                 bottom: 26,
                 //边框线宽
                 borderWidth: 1,
@@ -1033,15 +1127,15 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right: 0,
-                top: 20,
-                orient: 'vertical'
+                right: 20,
+                top: 0,
+                zlevel:999
             },
         };
         mycharts.setOption(option);
     },
     // 今日警情类别分布
-      echarts2() {
+    echarts2() {
         let mycharts = echarts.init(document.getElementById('type'));
         let xData = [];
         let yData = [];
@@ -1119,9 +1213,9 @@ methods: {
             }],
             grid: {
                 show: true,
-                top: 14,
+                top: 42,
                 bottom: 26,
-                right: 30
+                right: 20
             },
             tooltip: {
                 //触发类型：轴线，折线和柱状图一般使用axis
@@ -1155,9 +1249,9 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right: 0,
-                top: 20,
-                orient: 'vertical'
+                right: 20,
+                top: 0,
+                zlevel:999
             },
         };
         mycharts.setOption(option);
@@ -1248,8 +1342,8 @@ methods: {
                 itemWidth: 23,  // 设置宽度
                 itemHeight: 8, // 设置高度
                 data: ['当前', '同比'],
-                right: 30,
-                top: 30,
+                right: 0,
+                top: 42,
                 orient: 'vertical',
                 height: 100,
             },
@@ -1327,10 +1421,10 @@ methods: {
                 }],
             grid: {
                 // 图表位置
-                top: 14,
+                top: 42,
                 left: 65,
                 bottom: 26,
-                right: 100,
+                right: 70,
                 //边框线宽
                 borderWidth: 1,
                 //显示
@@ -1368,9 +1462,8 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right: 0,
-                top: 20,
-                orient: 'vertical'
+                right: 20,
+                top: 0
             },
         };
         mycharts.setOption(option);
@@ -1383,13 +1476,14 @@ methods: {
         let value = that.data5[0];
         let value1 = that.data5[1];
         let value2 = that.data5[2];
-        let color = ['#b70e1b', '#e6c300', '#25286e'];
+        let value3 = that.data5[3];
+        let color = ['#b70e1b', '#e6c300', '#25286e','#286823'];
         let option = {
             backgroundColor: '#fff',
             title: [
                 {
-                    text: '警情一级分类统计',
-                    left: '2%',
+                    text: '一级',
+                    left: '10%',
                     bottom: '10%',
                     textStyle: {
                         color: color[0],
@@ -1397,8 +1491,8 @@ methods: {
                     }
                 },
                 {
-                    text: '警情二级分类统计',
-                    left: '35%',
+                    text: '二级',
+                    left: '34%',
                     bottom: '10%',
                     textStyle: {
                         color: color[1],
@@ -1406,11 +1500,20 @@ methods: {
                     }
                 },
                 {
-                    text: '警情三级分类统计',
-                    left: '68%',
+                    text: '三级',
+                    left: '58%',
                     bottom: '10%',
                     textStyle: {
                         color: color[2],
+                        fontSize: 14
+                    }
+                },
+                {
+                    text: '四级',
+                    left: '82%',
+                    bottom: '10%',
+                    textStyle: {
+                        color: color[3],
                         fontSize: 14
                     }
                 },
@@ -1420,6 +1523,8 @@ methods: {
                     name: '警情一级分类统计',
                     type: 'liquidFill',
                     data: [value, value, value],
+                    //水球大小
+                    radius: 80,
                     backgroundStyle: {
                         borderWidth: 2,
                         borderColor: '#fb5e69',
@@ -1434,7 +1539,7 @@ methods: {
                         }
                     },
                     color: [color[0], 'rgba(179,0,14,0.7)', 'rgba(179,0,14,0.4)', 'rgba(179,0,14,0.2)'],//水波的颜色 对应的是data里面值
-                    center: ['15%', '40%'],
+                    center: ['15%', '50%'],
                     itemStyle: {
                         opacity: 0.5,//波浪的透明度
                         shadowBlur: 0,//波浪的阴影范围
@@ -1453,6 +1558,7 @@ methods: {
                     name: '警情二级分类统计',
                     type: 'liquidFill',
                     data: [value1, value1, value1],
+                    radius: 80,
                     backgroundStyle: {
                         borderWidth: 2,
                         borderColor: '#daec62',
@@ -1467,7 +1573,7 @@ methods: {
                         }
                     },
                     color: [color[1], 'rgba(230,226,100,0.7)', 'rgba(230,226,100,0.4)', 'rgba(230,226,100,0.2)'],//水波的颜色 对应的是data里面值
-                    center: ['47.5%', '40%'],
+                    center: ['38%', '50%'],
                     itemStyle: {
                         opacity: 0.5,//波浪的透明度
                         shadowBlur: 0,//波浪的阴影范围
@@ -1486,6 +1592,7 @@ methods: {
                     name: '警情三级分类统计',
                     type: 'liquidFill',
                     data: [value2, value2, value2],
+                    radius: 80,
                     backgroundStyle: {
                         borderWidth: 2,
                         borderColor: '#89aae4',
@@ -1500,7 +1607,7 @@ methods: {
                         }
                     },
                     color: [color[2], 'rgba(37,40,110,0.4)', 'rgba(37,40,110,0.3)', 'rgba(37,40,110,0.2)'],//水波的颜色 对应的是data里面值
-                    center: ['80%', '40%'],
+                    center: ['62%', '50%'],
                     itemStyle: {
                         opacity: 0.5,//波浪的透明度
                         shadowBlur: 0,//波浪的阴影范围
@@ -1515,6 +1622,40 @@ methods: {
                         }
                     }
                 },
+                {
+                    name: '警情四级分类统计',
+                    type: 'liquidFill',
+                    data: [value3, value3, value3],
+                    radius: 80,
+                    backgroundStyle: {
+                        borderWidth: 2,
+                        borderColor: '#55ad4f',
+                        color: '#fff'
+                    },
+                    outline: {
+                        borderDistance: 2, //外部轮廓与图表的距离 数字
+                        itemStyle: {
+                            borderColor: color[3], //边框的颜色
+                            borderWidth: 2,  //边框的宽度
+                            shadowBlur: 0
+                        }
+                    },
+                    color: [color[2], 'rgba(40,104,35,0.4)', 'rgba(40,104,35,0.3)', 'rgba(40,104,35,0.2)'],//水波的颜色 对应的是data里面值
+                    center: ['85%', '50%'],
+                    itemStyle: {
+                        opacity: 0.5,//波浪的透明度
+                        shadowBlur: 0,//波浪的阴影范围
+                    },
+                    label: {
+                        normal: {
+                            position: ['50%', '30%'],
+                            formatter: (value3 * 100).toFixed(1) + '%',
+                            textStyle: {
+                                fontSize: 16,
+                            },
+                        }
+                    }
+                }
             ],
             toolbox: {
                 //显示
@@ -1526,9 +1667,8 @@ methods: {
                     //保存
                     saveAsImage: {}
                 },
-                right: 0,
-                top: 20,
-                orient: 'vertical'
+                top: 0,
+                right:20
             },
         };
         liquid.setOption(option)
@@ -1537,36 +1677,25 @@ methods: {
     // 抽取接警处理统计
     echarts6() {
         let myCharts = echarts.init(document.getElementById("jiejingchuli"));
-        let that = this;
         let xData = [];
         let yData = [];
         let myColor = ['#dee2ff', '#ced5ff', '#b1bbff', '#94a2ff', '#7d7eff', '#7a68ff', '#5b3cfe',]
-        let sum = 0;
         this.data6.forEach(function (value) {
             yData.push(value.type);
             xData.push(value.value);
-            sum += value.value;
         });
         let option = {
             backgroundColor: '#fff',
-            title: [{
-                text: '报警量' + sum,
-                left: 150,
-                top: 6,
-                textStyle: {
-                    fontSize: 14,
-                    fontWeight: 'normal',
-                    color: '#25286e'
-                }
-            }, {
-                text: '抽取接警处理统计占比',
-                right: 40,
-                bottom: 20,
-                textStyle: {
-                    fontSize: 14,
-                    color:'#333'
-                }
-            }],
+            // title: [{
+            //     text: '报警量' + sum,
+            //     left: 150,
+            //     top: 6,
+            //     textStyle: {
+            //         fontSize: 14,
+            //         fontWeight: 'normal',
+            //         color: '#25286e'
+            //     }
+            // }],
             yAxis: {
                 type: 'category',
                 data: yData,
@@ -1668,7 +1797,7 @@ methods: {
                 xAxisIndex: 1,
                 //两个柱子间的距离
                 barGap: '-100%',
-                data: [100, 100, 100, 100, 100],
+                data: [100, 100, 100, 100, 100,100,100],
                 itemStyle: {
                     normal: {
                         color: '#f2f2f2'
@@ -1678,50 +1807,12 @@ methods: {
                     }
                 },
                 zlevel: 0
-            }, {
-                name: '报警量',
-                type: 'pie',
-                radius: [0, '40%'],
-                center: ["80%", '45%'],
-                data: Object.keys(that.data6_1).map(function (key) {
-                    return {
-                        name: key,
-                        value: that.data6_1[key]
-                    }
-                }),
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: true, //开启显示
-                            position: 'right', //在上方显示
-                            textStyle: { //数值样式
-                                color: '#333',
-                                fontSize: 12
-                            },
-                        },
-                        color: function (params) {
-                            let num = myColor.length;
-                            return myColor[params.dataIndex % num]
-                        },
-                    },
-                    emphasis: {
-                        label: {
-                            textStyle: { //数值样式
-                                color: 'blue',
-                                fontSize: 18
-                            }
-                        },
-                    }
-                },
-                labelLine: {
-                    length: 2
-                }
             }],
             grid: [{
-                width: "50%",
-                top: 30,
+                top: 42,
                 bottom: 26,
-                left: 80
+                right:20,
+                left:80
             }],
             tooltip: {
                 //触发类型：轴线，折线和柱状图一般使用axis
@@ -1754,9 +1845,8 @@ methods: {
                     //保存
                     saveAsImage: {},
                 },
-                right: 0,
-                top: 20,
-                orient: 'vertical'
+                top: 0,
+                right:20
             },
         };
         myCharts.setOption(option);
@@ -1833,8 +1923,8 @@ methods: {
                 //图例数据，和series中的name一致
                 data: ['当前', '同比', '环比'],
                 //位置
-                right: 30,
-                top: 30,
+                right: 0,
+                top: 42,
                 //纵向排列
                 orient: 'vertical',
                 height: 100
@@ -1950,8 +2040,9 @@ methods: {
                         }
                         ],
                         label: {
-                            fontSize: 8
-                        }
+                            fontSize: 8,
+                            borderWidth:0
+                        },
                     },
                 },
                 {
@@ -2004,8 +2095,8 @@ methods: {
             //图表位置，和边框
             grid: {
                 // 图表位置
-                right: 92,
-                top: 20,
+                right: 60,
+                top: 42,
                 bottom: 26,
                 //边框线宽
                 borderWidth: 1,
@@ -2042,13 +2133,33 @@ methods: {
                     saveAsImage: {}
                 },
                 //位置
-                right: 0,
-                top: 20,
-                orient: 'vertical'
+                right: 20,
+                top: 0
             },
         };
         mycharts.setOption(option);
     },
+    // 切换 tag
+    cut(v){
+        console.log(v)
+        if(v[1] === 1){
+            this.variate_one = v[0];
+            if(v[0]===1){
+
+                // this.echarts1('area2');
+            }else if(v[0]===2){
+                console.log(this.variate_one)
+                // this.echarts3('qiangdao2');
+            }
+
+        }else if(v[1]===2){
+            this.variate_two = v[0]
+        }else if(v[1]===3){
+            this.variate_three = v[0]
+        }
+
+    }
+
     
 
 
@@ -2074,13 +2185,18 @@ created() {
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
-    this.echarts1();
-    this.echarts3();
+    this.echarts1('area');
+    this.echarts1('area2');
+    this.echarts3('qiangdao');
+    this.echarts3('qiangdao2');
     this.echarts2();
     this.echarts4();
     this.liquidFill();
     this.echarts6();
     this.echarts7();
+    // window.addEventListener('resize', () => {
+    //     // console.log('rezise')
+    // })
 
 },
 beforeCreate() {}, //生命周期 - 创建之前

@@ -8,13 +8,23 @@
 	    	<div class="warnWrap">
 				<i class="iconfont icon-xiaoxi "></i>		
 	    	</div>
-	    	<!-- <img class="line" src="static/images/sys/lineH.png" alt="" /> -->
-	    	<div class="user">
-	    		<!-- {{userName?userName:"未登录"}} -->
-	    	</div>
+
+
 	    	<div class="mphoto">
-				<!-- <img src="static/images/test/photo_001.png" alt="" /> -->
 			</div>
+
+			<el-dropdown >
+				<span class="el-dropdown-link">
+					admin<i class="el-icon-arrow-down el-icon--right"></i>
+				</span>
+				<el-dropdown-menu slot="dropdown">
+					<el-dropdown-item>黄金糕</el-dropdown-item>
+					<el-dropdown-item>狮子头</el-dropdown-item>
+					<el-dropdown-item>螺蛳粉</el-dropdown-item>
+					<el-dropdown-item disabled>双皮奶</el-dropdown-item>
+					<el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+				</el-dropdown-menu>
+			</el-dropdown>
 	    </div>
 	</div>
 </template>

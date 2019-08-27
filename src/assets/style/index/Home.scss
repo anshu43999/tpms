@@ -52,18 +52,20 @@
                         line-height: 100%;
                         height: .2rem;
                         text-align: center;
+                        color: #fff;
+                        font-size: .2rem;
                     }
                 }
                 .qsjq_name{
                     text-align: center;
-                    font-size: .12rem;
+                    font-size: .14rem;
                     margin-top:.04rem; 
                 }
                 .qsjq_name_zd{
                     text-align: center;
-                    font-size: .12rem;
+                    font-size: .14rem;
                     // margin-top:.01rem; 
-                    font-weight: 600;
+                    font-weight: 550;
 
                 }
 
@@ -81,6 +83,7 @@
         .data_context{
             width: 7.5rem;
             height:3rem;
+            overflow: hidden;
         }
     }
     .box{
@@ -96,8 +99,8 @@
                 min-height: auto;
                 justify-content: space-between;
                 .gfjq_table{
-                    margin:.27rem .51rem 0 .3rem ;
-                    border: 1px solid #dddddd;
+                    margin:.38rem .51rem 0 .3rem ;
+                    // border: 1px solid #dddddd;
                 }
             }
         }
@@ -175,12 +178,88 @@
         .box2_title{
             height: 0.58rem;
             border-bottom:1px solid #dcdcdc ;
+            overflow: hidden;
+            .box2_title_list{
+                width: 6rem;
+                display: flex;
+                height: .33rem;
+                margin: .12rem 0 .12rem .24rem;
+                border-radius: 4px;
+                overflow: hidden;
+                li{
+                    width: 33%;
+                    line-height: .33rem;
+                    text-align: center;
+                    background: linear-gradient(to right,rgba(36,40,111,1), rgba(33,0,64,154) ); /* 标准的语法 */
+                    color: #fff;
+                    cursor: pointer;
+                    i{
+                        font-size: .18rem;
+                        margin-right: .1rem;
+                    }
+                };
+                li:last-child{
+                    border-top-right-radius:4px !important;
+                    border-bottom-right-radius:4px !important;
+
+                };
+                .btn_list1{
+                    background: linear-gradient(to right,rgba(111,127,182,1), rgba(111,125,180,1) ); /* 标准的语法 */
+                };
+                .btn_list2{
+                    background: linear-gradient(to right,rgba(111,124,178,1), rgba(112,120,169,1) ); /* 标准的语法 */
+                };
+                .btn_list3{
+                    background: linear-gradient(to right,rgba(112,119,168,1), rgba(112,115,161,1) ); /* 标准的语法 */
+                    border-top-right-radius:4px;
+                    border-bottom-right-radius:4px;
+                }
+                .btn_active{
+                    background: linear-gradient(to right,rgba(33,65,154,1), rgba(35,40,109,1) ); /* 标准的语法 */
+                }
+            }
         }
         .box2_wraplist{
             margin: .21rem  .35rem  .27rem .25rem;
             border:1px solid #dcdcdc ;
             min-height: 2.47rem;
             overflow: hidden;
+            .box2_title_list{
+                width: 2.2rem;
+                display: flex;
+                height: .33rem;
+                // margin: .12rem 0 .12rem .24rem;
+                border-radius: 4px;
+                overflow: hidden;
+                li{
+                    width: 33%;
+                    line-height: .33rem;
+                    text-align: center;
+                    background: linear-gradient(to right,rgba(36,40,111,1), rgba(33,0,64,154) ); /* 标准的语法 */
+                    color: #fff;
+                    cursor: pointer;
+                };
+                li:last-child{
+                    border-top-right-radius:4px !important;
+                    border-bottom-right-radius:4px !important;
+
+                };
+                .btn_list1{
+                    background: linear-gradient(to right,rgba(111,127,182,1), rgba(111,125,180,1) ); /* 标准的语法 */
+                };
+                .btn_list2{
+                    background: linear-gradient(to right,rgba(111,124,178,1), rgba(112,120,169,1) ); /* 标准的语法 */
+                };
+                .btn_list3{
+                    background: linear-gradient(to right,rgba(112,119,168,1), rgba(112,115,161,1) ); /* 标准的语法 */
+                    border-top-right-radius:4px;
+                    border-bottom-right-radius:4px;
+                }
+                .btn_active{
+                    background: linear-gradient(to right,rgba(33,65,154,1), rgba(35,40,109,1) ); /* 标准的语法 */
+                }
+            }
+
         }
     }
     .box3{
@@ -222,6 +301,50 @@
             }
         }
     }
+    .box5{
+        border: 1px solid #dcdcdc;
+        min-height: 3.46rem;
+        margin-top: .26rem;
+        background-color: #fff;
+        .box2_title{
+            height: 0.58rem;
+            border-bottom:1px solid #dcdcdc ;
+            overflow: hidden;
+            .box2_title_list{
+                width: 4rem;
+                display: flex;
+                height: .33rem;
+                margin: .12rem 0 .12rem .24rem;
+                border-radius: 4px;
+                overflow: hidden;
+                li{
+                    width: 50%;
+                    line-height: .33rem;
+                    text-align: center;
+                    background: linear-gradient(to right,rgba(36,40,111,1), rgba(33,0,64,154) ); /* 标准的语法 */
+                    color: #fff;
+                    cursor: pointer;
+                    i{
+                        font-size: .18rem;
+                        margin-right: .1rem;
+                    }
+                };
+                .btn_list1{
+                    background: linear-gradient(to right,rgba(111,127,182,1), rgba(111,125,180,1) ); /* 标准的语法 */
+                };
+                .btn_list2{
+                    background: linear-gradient(to right,rgba(111,124,178,1), rgba(112,120,169,1) ); /* 标准的语法 */
+                    border-top-right-radius:4px;
+                    border-bottom-right-radius:4px;
+                }; 
+                .btn_active{
+                    background: linear-gradient(to right,rgba(33,65,154,1), rgba(35,40,109,1) ); /* 标准的语法 */
+                    // border-top-right-radius:4px;
+                    // border-bottom-right-radius:4px;
+                }
+            }
+        }
+    }
 
     .common_title{
         border-bottom:1px solid  #dcdcdc;
@@ -238,6 +361,13 @@
            padding-right:.13rem; 
         }
 
+    }
+
+    .startShow{
+        z-index: 1;
+    }
+    .startHide{
+        z-index: 0;
     }
 }
 
