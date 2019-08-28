@@ -3,18 +3,26 @@
 <div class=''>
     <!--面包屑-->
     <breadcrumb :breadcrumb="breadcrumb" v-on:searchingfor="searchingfor"></breadcrumb>
-    抽取情况查询  
+    
+
+    <listheader :listheaderOptions='listheaderOptions'></listheader>
+
+    <List :data9='data9' :data10 ='data10' :options='listOptions'></List>
 </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
+import List from '@/components/common/action/list.vue'
 import Breadcrumb from '@/components/common/action/Breadcrumb.vue';
+import listheader from '@/components/common/action/listheader.vue'
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {
-    Breadcrumb
+    Breadcrumb,
+    listheader,
+    List
 },
 data() {
 //这里存放数据
@@ -23,6 +31,42 @@ return {
         search:false,   
         searching:'',
     },
+    // listheader Options
+	listheaderOptions :{
+		timeExact : false ,    //时分秒
+		timeExacts : true ,   //日期
+		administrate : true,  //行政区划代码
+		searchInput : false   //接警单编号 
+    },
+    // list options
+    listOptions : {
+		fistline : false
+
+    },
+    data9 :[
+        {city : "接警时间", value :"xzqh"},
+        {city : "行政区划代码", value :"bjl"},
+        {city : "接警应抽数量", value :"bjqz"},
+        {city : "接警实抽数量", value :"cjfk"},
+        {city : "接警未抽数量", value :"xxzx"},
+        {city : "处警应抽数量", value :"zfbj"},
+        {city : "处警实抽数量", value :"srdh"},
+        {city : "处警未抽数量", value :"xtcs"},
+        {city : "反馈应抽数量", value :"qita"},
+        {city : "反馈实抽数量", value :"qita"},
+        {city : "反馈未抽数量", value :"qita"},
+    ],
+    data10: [
+        { classify: '太原市', xzqh: 6666,  bjl: 8888,  bjqz:22222,  cjfk:23145,    xxzx:23145, zfbj:23145, srdh:23145,xtcs:23145,qita:23145 }, 
+        { classify: '小店区', xzqh: 6666,  bjl: 8888,  bjqz:22222,  cjfk:23145,    xxzx:23145, zfbj:23145, srdh:23145,xtcs:23145,qita:23145 }, 
+        { classify: '迎泽区', xzqh: 6666,  bjl: 8888,  bjqz:22222,  cjfk:23145,    xxzx:23145, zfbj:23145, srdh:23145,xtcs:23145,qita:23145 }, 
+		{ classify: '杏花岭区', xzqh: 6666,  bjl: 8888,  bjqz:22222,  cjfk:23145,    xxzx:23145, zfbj:23145, srdh:23145,xtcs:23145,qita:23145 }, 
+        { classify: '尖草坪区', xzqh: 6666,  bjl: 8888,  bjqz:22222,  cjfk:23145,    xxzx:23145, zfbj:23145, srdh:23145,xtcs:23145,qita:23145 }, 
+        { classify: '万柏林区', xzqh: 6666,  bjl: 8888,  bjqz:22222,  cjfk:23145,    xxzx:23145, zfbj:23145, srdh:23145,xtcs:23145,qita:23145 }, 
+        { classify: '晋源区', xzqh: 6666,  bjl: 8888,  bjqz:22222,  cjfk:23145,    xxzx:23145, zfbj:23145, srdh:23145,xtcs:23145,qita:23145 }, 
+        
+
+	],
 
 
 };

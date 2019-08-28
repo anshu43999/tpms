@@ -184,7 +184,7 @@ export default {
 		},
 
     {
-      icon: "icon-fankui",
+      // icon: "icon-fankui",
       title: "接警处理类型统计",
       linkto: "/index/AlarmStatistics/AlarmType",
       level: 2,
@@ -192,7 +192,7 @@ export default {
       lid: 9
     },
     {
-      icon: "icon-fankui",
+      // icon: "icon-fankui",
       title: "警种报警情况统计",
       linkto: "/index/AlarmStatistics/AlarmKind",
       level: 2,
@@ -200,7 +200,7 @@ export default {
       lid: 10
     },
     {
-      icon: "icon-fankui",
+      // icon: "icon-fankui",
       title: "处警反馈情况统计表",
       linkto: "/index/AlarmStatistics/FeedbackForms",
       level: 2,
@@ -208,7 +208,7 @@ export default {
       lid: 11
     },
     {
-      icon: "icon-fankui",
+      // icon: "icon-fankui",
       title: "数据抽取情况统计表",
       linkto: "/index/AlarmStatistics/ExtractForms",
       level: 2,
@@ -216,7 +216,7 @@ export default {
       lid: 12
     },
     {
-      icon: "icon-fankui",
+      // icon: "icon-fankui",
       title: "警情三级分类统计",
       linkto: "/index/AlarmStatistics/ThreeType",
       level: 2,
@@ -224,7 +224,7 @@ export default {
       lid: 13
     },
     {
-      icon: "icon-fankui",
+      // icon: "icon-fankui",
       title: "案发地址类别统计",
       linkto: "/index/AlarmStatistics/Address",
       level: 2,
@@ -232,7 +232,7 @@ export default {
       lid: 14
     },
     {
-      icon: "icon-fankui",
+      // icon: "icon-fankui",
       title: "警情分布情况统计",
       linkto: "/index/AlarmStatistics/Distribute",
       level: 2,

@@ -141,8 +141,7 @@
                     <!-- <button @click="save($event)">保存</button> -->
                 </div>
                 <div class="gfjq_table" style="width : 7.2rem">
-                     <exclusivelist></exclusivelist>
-
+                     <exclusivelist :data12='data12'></exclusivelist>
                 </div>
 
             </div>
@@ -162,17 +161,18 @@
             </ul>
         </div>
         <div class="box2_wraplist">
-
-                <ul class="box2_title_list">
+                <ul v-if="variate_two ===1" class="box2_title_list">
+                    <li :class="[ variate_three===1 ?'btn_active': 'btn_list1' ]"  @click="cut([1,3])">本周</li>
+                    <li :class="[ variate_three===2 ?'btn_active': 'btn_list2' ]"  @click="cut([2,3])">当月</li>
+                    <li :class="[ variate_three===3 ?'btn_active': 'btn_list3' ]"  @click="cut([3,3])">今年</li>
+                </ul>
+                <ul v-if="variate_two ===3" class="box2_title_list">
                     <li :class="[ variate_three===1 ?'btn_active': 'btn_list1' ]"  @click="cut([1,3])">今日</li>
                     <li :class="[ variate_three===2 ?'btn_active': 'btn_list2' ]"  @click="cut([2,3])">当月</li>
                     <li :class="[ variate_three===3 ?'btn_active': 'btn_list3' ]"  @click="cut([3,3])">今年</li>
                 </ul>
-
-            <List :data9='data9' :data10 ='data10'></List>
+            <List :data9='data9' :data10 ='data10'  :options='options'></List>
         </div>   
-        
-
    </div>
 
    <!--省、市    重大警情 -->
@@ -680,15 +680,18 @@ return {
         {types : "抢劫",value : "rob"}
     ],
     data12 : [
-        {classify:"同比"}
+        {classify:"同比",value : [+10,+85.2,+85.2,-37.1,-10.1] },
+        {classify:"环比",value : [-6.4,-7.1,+85.2,-37.1,-10.1] }
     ],
     // 今日警情地域分布 
     variate_one : 1,
     variate_two : 1,
-    variate_three : 1
+    variate_three : 1,
 
-
-
+    // list options
+    options : {
+        fistline : true
+    }
 };
 },
 //监听属性 类似于data概念

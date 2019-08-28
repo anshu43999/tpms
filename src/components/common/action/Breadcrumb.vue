@@ -2,11 +2,11 @@
 	<div class="breadcrumbwrap">
 		<el-breadcrumb separator-class="el-icon-arrow-right">
 			<template v-if="breadcrumb.undefinedpath">
-			    <el-breadcrumb-item>
+			    <!-- <el-breadcrumb-item>
 			    	<span @click='backhome'>	
 				    	首页
 			    	</span>
-			    </el-breadcrumb-item>
+			    </el-breadcrumb-item> -->
 			    <el-breadcrumb-item v-for="item in breadcrumbListsCache" :key="item.index" >{{item.name}}</el-breadcrumb-item>
 				<el-breadcrumb-item >
 			    	{{breadcrumb.undefinedpath}}
@@ -14,10 +14,10 @@
 			</template>
 			<template v-else>
 				<!--<el-breadcrumb-item >-->
-				<el-breadcrumb-item to="/index/home">
-			    	<!--<i class="icon-home"></i>-->
+				<!-- <el-breadcrumb-item to="/index/home">
+			    	<i class="icon-home"></i>
 			    	首页
-			    </el-breadcrumb-item>
+			    </el-breadcrumb-item> -->
 			    <!--<el-breadcrumb-item v-for="(item,index) in breadcrumbList" :key="index" >{{item.name}}</el-breadcrumb-item>-->
 			    <el-breadcrumb-item v-for="(item,index) in breadcrumbList" :key="index" :to='breadcrumbLink(index)'>{{item.name}}</el-breadcrumb-item>
 			    <!--<el-breadcrumb-item v-for="item in breadcrumbList" :key="item.index" :to="item.path">{{item.name}}</el-breadcrumb-item>-->
@@ -174,9 +174,10 @@ import { mapState,mapMutations,mapGetters,mapActions} from 'vuex';
 	.breadcrumbwrap{
 		/* margin:0 -0.54rem;
 		padding:0 0.4rem; */
-		height:0.6rem;
-		line-height: 0.6rem;
-		background-color: rgba(241, 241, 241, 1);
+		padding-left:.10rem;
+		height:0.66rem;
+		line-height: 0.66rem;
+		/* background-color: rgba(241, 241, 241, 1); */
 		position:relative;
 		overflow: hidden;
 	}

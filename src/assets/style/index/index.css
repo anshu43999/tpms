@@ -59,7 +59,7 @@ div.header .mphoto{
 	display: inline-block;
 	width:0.4rem;
 	height:0.4rem;
-	margin:0 0.1rem 0 0.14rem;
+	margin:0 0.1rem 0 0;
 	border-radius:50%;
 	overflow: hidden;
 	background:#fcb482;
@@ -126,3 +126,6 @@ div.header .exitwrap .exit{
     font-size: 12px;
   }
 
+  .el-divider{
+	  margin: 0 0.15rem !important;
+  }

@@ -9,7 +9,7 @@
 				<i class="iconfont icon-xiaoxi "></i>		
 	    	</div>
 
-
+			<el-divider direction="vertical"></el-divider>
 	    	<div class="mphoto">
 			</div>
 

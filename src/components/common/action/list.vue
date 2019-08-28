@@ -8,12 +8,26 @@
       :header-cell-style="{background:'#e5f1ff',color:'#606266'}"
       style="width: 100% text-algin=center">
       <el-table-column
+        v-if="options['fistline']"
         prop="classify"
         label=""
         align='center'
         header-align = 'center'
         >
       </el-table-column>
+
+
+      <!-- <el-table-column
+        v-if="options['fistline']"
+        prop="classify"
+        label=""
+        align='center'
+        header-align = 'center'
+        >
+      </el-table-column> -->
+
+
+
       <el-table-column
         v-for="(item,index) in data9"
         :key="index"
@@ -32,7 +46,7 @@
 //例如：import 《组件名称》 from '《组件路径》';
 
 export default {
-    props :['data9','data10'],
+    props :['data9','data10','options'],
 //import引入的组件需要注入到对象中才能使用
 components: {},
 data() {

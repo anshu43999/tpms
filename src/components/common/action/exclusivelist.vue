@@ -20,20 +20,26 @@
             <th>抢劫</th>
         </tr>
         <tr>
-            <td class="t1">张三</td>
-            <td>三</td>
-            <td>2</td>
-            <td>62</td>
-            <td>61</td>
-            <td>61</td>
+            <td class="t1">{{data12[0]['classify']}}</td>
+            <td v-for="(item,index) in data12[0]['value']" :key="index">
+              <span v-if="item>0">+{{item}}%</span>
+              <span v-if="item<0">{{item}}%</span>
+              <!-- {{item}} -->
+              <i  v-if="item>0" class= "icon-zengjia rise iconfont"></i>
+              <i></i>
+              <i v-if="item<0" class= "icon-jianshao decline iconfont"></i>
+            </td>
         </tr>
         <tr>
-            <td class="t1">李四</td>
-            <td>三</td>
-            <td>1</td>
-            <td>48</td>
-            <td>67</td>
-            <td>67</td>
+            <td class="t1">{{data12[1]['classify']}}</td>
+            <td v-for="(item,index) in data12[1]['value']" :key="index">
+              <span v-if="item>0">+{{item}}%</span>
+              <span v-if="item<0">{{item}}%</span>
+              <!-- {{item}} -->
+              <i  v-if="item>0" class= "icon-zengjia rise iconfont"></i>
+              <i></i>
+              <i v-if="item<0" class= "icon-jianshao decline iconfont"></i>
+            </td>
         </tr>
     </table>
     
@@ -46,6 +52,7 @@
 //例如：import 《组件名称》 from '《组件路径》';
 
 export default {
+  props : ['data12'],
 //import引入的组件需要注入到对象中才能使用
 components: {},
 data() {
@@ -83,17 +90,21 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 //@import url(); 引入公共css类
 
 table {
+  color: #333333;
   border-collapse:collapse;
   border:1px solid #dcdcdc;
   width:100%;
   margin:0 auto;
+  font-size: .16rem
 //   margin-top:100px;
 }
 th, td {
+  color: #444;
+  font-weight: 600;
   height: .75rem;
   border:1px #dcdcdc solid;
   text-align:center;
-  font-size:12px;
+  font-size:.16rem;
   line-height:30px;
   background:#fff;
 }
@@ -122,7 +133,17 @@ em {
   left:-70px;
   width:55x;
 }
-.t1{background:#fff;}
+.t1{
+  background:#fff;
+  font-weight: 600;
+}
+.rise{
+  color: #ff4200;
+
+}
+.decline{
+  color: #105fff;
+}
 
 
 
