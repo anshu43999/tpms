@@ -11,14 +11,16 @@
 	</span>
 
 	<div class="table_wrap">
-		<div class="options">
+		<!-- <div class="options">
 			<ul>
 				<li><i class="iconfont icon-daochu"></i>                                                                            导出</li>
 				<li><i class="iconfont icon-dayin"></i>                                                                            打印</li>
 				<li><i class="iconfont icon-shuaxin"></i>                                                                            刷新</li>
 			</ul>
 
-		</div>	
+		</div>	 -->
+		<listoptions></listoptions>
+
 		<div class="list_context">
 			<p>山西省太原市数据抽取系统接警处理统计</p>
 			<div class="list_time">
@@ -41,15 +43,17 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import List from '@/components/common/action/list.vue'
+import List from '@/components/common/action/list.vue';
 import Breadcrumb from '@/components/common/action/Breadcrumb.vue';
-import listheader from '@/components/common/action/listheader.vue'
+import listheader from '@/components/common/action/listheader.vue';
+import listoptions from '@/components/common/action/listoptions.vue';
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {
 	Breadcrumb,
 	List,
-	listheader
+	listheader,
+	listoptions
 },
 data() {
 //这里存放数据
@@ -117,12 +121,16 @@ return {
 		timeExact : true ,    //时分秒
 		timeExacts : false ,   //日期
 		administrate : true,  //行政区划代码
-		searchInput : false   //接警单编号 
+		searchInput : false ,  //接警单编号 
+		manner : true, // 报警方式 
+		type : 1,    //类型
 	},
 
 	// list options
     listOptions : {
-		fistline : false
+		fistline : false,
+		czxs : false , //操作项 
+        type : 1,
 
     }
 
@@ -187,29 +195,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 	margin-top:.24rem; 
 	margin-bottom:.28rem; 
 	min-height: 7.41rem;
-	.options{
-		height: .75rem;
-		overflow: hidden;
-		border-bottom:1px solid #dddddd; 
-		line-height: .75rem;
-		ul{
-			margin-top:.225rem; 
-			height: .3rem;
-			margin-left:.23rem; 
-			li{
-				cursor: pointer;
-				float: left;
-				width: .85rem;
-				height: .3rem;
-				line-height: .3rem;
-				background: linear-gradient(to right, rgba(34,63,153,1), rgba(36,41,111,1)); /* 标准的语法 */
-				border-radius: 4px;
-				margin-right:.2rem; 
-				text-align: center;
-				color: #ffffff;
-			}
-		}
-	}
+
 	.list_context{
 		
 		p{

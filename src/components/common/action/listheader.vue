@@ -1,80 +1,608 @@
 <!--  -->
 <template>
-<div class="list_header" >
-    <div class="block common_op" v-if="listheaderOptions['timeExact']">
-        <span class="demonstration">接警时间</span>
-        <el-date-picker
-        v-model="value1"
-        size ='small '
-        type="datetimerange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期">
-        </el-date-picker>
-    </div>
-
-    <div class="block common_op" v-if="listheaderOptions['timeExacts']">
-        <span class="demonstration">接警时间</span>
-        <el-date-picker
-        v-model="value1"
-        size ='small '
-        type="daterange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期">
-        </el-date-picker>
-    </div>
-
-
-    <div class="xzdm common_op">
-        <div class="boxInput"  v-if="listheaderOptions['administrate']">
-            <span class="demonstration">行政区划代码</span>
-            <el-input
-            style="width:1rem;"
-            class="input"
-            placeholder="太原市"
-            v-model="input"
-            size ='small'
-            :disabled="true">
-            </el-input>
-        </div>  
-
-        <div class="line ">
-            <i class="iconfont icon-guanlian"></i>
+<div :class="listheaderOptions['type']===1 ? 'list_header' : 'list_header_one'       " >
+    <template v-if="listheaderOptions['type']===1">
+        <div class="block common_op" v-if="listheaderOptions['timeExact']">
+            <span class="demonstration">接警时间</span>
+            <el-date-picker
+            v-model="value1"
+            size ='small '
+            type="datetimerange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期">
+            </el-date-picker>
         </div>
 
-        <div class="boxInput ">
-            <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+        <div class="block common_op" v-if="listheaderOptions['timeExacts']">
+            <span class="demonstration">接警时间</span>
+            <el-date-picker
+            v-model="value1"
+            size ='small '
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期">
+            </el-date-picker>
+        </div>
+
+
+        <div class="xzdm common_op" v-if="listheaderOptions['administrate']">
+            <div class="boxInput"  >
+                <span class="demonstration">行政区划代码</span>
+                <el-input
+                style="width:1rem;"
+                class="input"
+                placeholder="太原市"
+                v-model="input"
+                size ='small'
+                :disabled="true">
+                </el-input>
+            </div>  
+
+            <div class="line ">
+                <i class="iconfont icon-guanlian"></i>
+            </div>
+
+            <div class="boxInput ">
+                <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                    <el-option
+                    
+                    v-for="item in options"
+                    :key="item.value"
+                    size ='mini'
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+
+        </div>
+
+        <div class="common_op" v-if="listheaderOptions['searchInput']">
+            <div class="boxInput"  style="margin-left : .2rem" >
+                <span class="demonstration">接警单编号</span>
+                <el-input
+                style="width : 2rem"
+                placeholder="请输入接警单编号"
+                v-model="input"
+                size ='small'
+                >
+                </el-input>
+            </div>
+        </div>
+
+        <div class="common_op" v-if="listheaderOptions['manner']">
+            <span>报警方式代码</span>
+            <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
                 <el-option
-                
                 v-for="item in options"
                 :key="item.value"
-                size ='mini'
                 :label="item.label"
                 :value="item.value">
                 </el-option>
             </el-select>
         </div>
+        
 
-    </div>
-
-    <div class="common_op">
-        <div class="boxInput"  style="margin-left : .2rem" v-if="listheaderOptions['searchInput']">
-            <span class="demonstration">接警单编号</span>
-            <el-input
-            style="width : 2rem"
-            placeholder="请输入接警单编号"
-            v-model="input"
-            size ='small'
-            >
-            </el-input>
+        <div class="inquire">
+            <span>查询</span>
         </div>
-    </div>
-    
 
-    <div class="inquire">
-        <span>查询</span>
-    </div>
+    </template>
+
+    <template v-if="listheaderOptions['type']===2">
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="block common_op">
+                <span class="demonstration">接警时间</span>
+                <el-date-picker
+                v-model="value1"
+                size ='small '
+                type="datetimerange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期">
+                </el-date-picker>
+            </div>
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">接警单编号</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入接警单编号"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">接警员姓名</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入接警员姓名"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+        </div>
+
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="xzdm common_op"  style="margin-left : .22rem;">
+                <div class="boxInput"  >
+                    <span class="demonstration">行政区划代码</span>
+                    <el-input
+                    style="width:1rem;"
+                    class="input"
+                    placeholder="太原市"
+                    v-model="input"
+                    size ='small'
+                    :disabled="true">
+                    </el-input>
+                </div>  
+                <div class="line ">
+                    <i class="iconfont icon-guanlian"></i>
+                </div>
+                <div class="boxInput ">
+                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                        <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        size ='mini'
+                        :label="item.label"
+                        :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+
+            <div class="common_op" >
+                <span>接警类型代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">报警电话</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入报警电话"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+        </div>
+        
+        <div  style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>警情状态代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>警情分类代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">接警单位代码</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入管辖单位"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+             <div class="common_op"   style="margin-left : .2rem" >
+                <span>警情状态代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">接警单位代码</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入管辖单位"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+
+
+        </div>
+        
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="common_op" style="margin-left : .2rem">
+                <el-checkbox-group v-model="checkList">
+                    <el-checkbox label="有效警情"></el-checkbox>
+                    <el-checkbox label="数据检验合格"></el-checkbox>
+                </el-checkbox-group>
+
+            </div>
+            <div class="inquire">
+                <span>查询</span>
+            </div>
+
+
+        </div>
+
+    </template>
+    
+    <template v-if="listheaderOptions['type']===3">
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="block common_op">
+                <span class="demonstration">接警时间</span>
+                <el-date-picker
+                v-model="value1"
+                size ='small '
+                type="datetimerange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期">
+                </el-date-picker>
+            </div>
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">接警单编号</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入接警单编号"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">接警员姓名</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入接警员姓名"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+        </div>
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="xzdm common_op"  style="margin-left : .22rem;">
+                <div class="boxInput"  >
+                    <span class="demonstration">行政区划代码</span>
+                    <el-input
+                    style="width:1rem;"
+                    class="input"
+                    placeholder="太原市"
+                    v-model="input"
+                    size ='small'
+                    :disabled="true">
+                    </el-input>
+                </div>  
+                <div class="line ">
+                    <i class="iconfont icon-guanlian"></i>
+                </div>
+                <div class="boxInput ">
+                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                        <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        size ='mini'
+                        :label="item.label"
+                        :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>来话类型代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>报警方式</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+        
+
+
+        </div>
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>接警类型</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>接警单位代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">接警单编号</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入接警单编号"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+        </div>
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="inquire">
+                <span>查询</span>
+            </div>
+        </div>
+
+    </template>
+
+    <template v-if="listheaderOptions['type']===4">
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="block common_op">
+                <span class="demonstration">处警时间</span>
+                <el-date-picker
+                v-model="value1"
+                size ='small '
+                type="datetimerange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期">
+                </el-date-picker>
+            </div>
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">处警单编号</span>
+                    <el-input
+                    style="width : 2rem"
+                    placeholder="请输入接警单编号"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>出警单位代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+
+            
+        </div>
+        
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="xzdm common_op"  style="margin-left : .22rem;">
+                <div class="boxInput"  >
+                    <span class="demonstration">行政区划代码</span>
+                    <el-input
+                    style="width:1rem;"
+                    class="input"
+                    placeholder="太原市"
+                    v-model="input"
+                    size ='small'
+                    :disabled="true">
+                    </el-input>
+                </div>  
+                <div class="line ">
+                    <i class="iconfont icon-guanlian"></i>
+                </div>
+                <div class="boxInput ">
+                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                        <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        size ='mini'
+                        :label="item.label"
+                        :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+            
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>警情状态代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+
+            <div class="common_op">
+                <div class="boxInput"  style="margin-left : .2rem" >
+                    <span class="demonstration">警情关键字</span>
+                    <el-input
+                    style="width : 3rem"
+                    placeholder="多关键字查询请用中文逗号隔开"
+                    v-model="input"
+                    size ='small'
+                    >
+                    </el-input>
+                </div>
+            </div>
+
+            <div class="inquire">
+                <span>查询</span>
+            </div>
+
+            
+        </div>
+
+    </template>
+
+    <template v-if="listheaderOptions['type']===5">
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="block common_op">
+                <span class="demonstration">接警时间</span>
+                <el-date-picker
+                v-model="value1"
+                size ='small '
+                type="datetimerange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期">
+                </el-date-picker>
+            </div>
+            
+            <div class="xzdm common_op" >
+                <div class="boxInput"  >
+                    <span class="demonstration">行政区划代码</span>
+                    <el-input
+                    style="width:1rem;"
+                    class="input"
+                    placeholder="太原市"
+                    v-model="input"
+                    size ='small'
+                    :disabled="true">
+                    </el-input>
+                </div>  
+
+                <div class="line ">
+                    <i class="iconfont icon-guanlian"></i>
+                </div>
+
+                <div class="boxInput ">
+                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                        <el-option
+                        
+                        v-for="item in options"
+                        :key="item.value"
+                        size ='mini'
+                        :label="item.label"
+                        :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>等级代码</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+
+
+
+          
+        </div>
+
+        <div style="width : 100% ; height : 100% ; overflow : hidden">
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>警情分类代码 </span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+
+            <div class="common_op"   style="margin-left : .2rem" >
+                <span>统计模式</span>
+                <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+            </div> 
+
+            <div class="inquire">
+                <span>查询</span>
+            </div>
+        </div>
+    </template>
 
 </div>
 </template>
@@ -117,7 +645,8 @@ return {
           value: '选项5',
           label: '北京烤鸭'
 	}],
-	value: '',
+    value: '',
+    checkList: ['复选框 A']
 
 };
 },
@@ -149,17 +678,30 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
 .list_header{
-	height: .9rem;
+	min-height: .9rem;
 	border: 1px solid #dddddd;
 	line-height: .87rem;
     position: relative !important;
     background-color: #fff;
 }
+.list_header_one{
+    min-height: .9rem;
+	border: 1px solid #dddddd;
+	line-height: .5rem;
+    position: relative !important;
+    background-color: #fff;
+    .inquire{
+        line-height: .5rem;
+        height: .52rem
+    }
+
+}
+
 
 .block{
 	margin-left: .22rem;
 	float: left;
-	margin-right: .32rem;
+
 }
 .block .demonstration{
 	margin-right: .1rem;
@@ -168,6 +710,8 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 .xzdm{
     float: left;
+    margin-right: .2rem;
+    font-size: .16rem;
 }
 .boxInput{
 	float: left;
@@ -210,5 +754,8 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 .common_op{
     float: left;
 }
-
+.common_op span{
+    font-size: .16rem;
+    margin-right : .1rem;
+}
 </style>

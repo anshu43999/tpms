@@ -1,13 +1,15 @@
 <!--  -->
 <template>
-<div class=''>
+<div class='wrap'>
     <!--面包屑-->
     <breadcrumb :breadcrumb="breadcrumb" v-on:searchingfor="searchingfor"></breadcrumb>
     
 
     <listheader :listheaderOptions='listheaderOptions'></listheader>
-
-    <List :data9='data9' :data10 ='data10' :options='listOptions'></List>
+    <span class="withdraw">
+            点击收回
+	</span>
+    <List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem ; margin-bottom : .25rem;"></List>
 </div>
 </template>
 
@@ -17,6 +19,7 @@
 import List from '@/components/common/action/list.vue'
 import Breadcrumb from '@/components/common/action/Breadcrumb.vue';
 import listheader from '@/components/common/action/listheader.vue'
+import { type } from 'os';
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {
@@ -36,12 +39,15 @@ return {
 		timeExact : false ,    //时分秒
 		timeExacts : true ,   //日期
 		administrate : true,  //行政区划代码
-		searchInput : false   //接警单编号 
+        searchInput : false,   //接警单编号 
+        manner : true, // 报警方式 
+        type : 1,
     },
     // list options
     listOptions : {
-		fistline : false
-
+        fistline : false,
+        czxs : false , //操作项 
+        type : 1,
     },
     data9 :[
         {city : "接警时间", value :"xzqh"},
@@ -108,5 +114,21 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
+.wrap{
+    height:100%;
+}
 
+
+.withdraw{
+	color: #ffffff;
+	width: 100%;
+	display: block;
+	background-color: #c2d8ff;
+	height: .3rem;
+	line-height: .3rem;
+	text-align: center;
+	margin: 0 auto;
+	cursor: pointer;
+
+}
 </style>

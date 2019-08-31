@@ -221,7 +221,6 @@ require("echarts/lib/component/toolbox");
 
 
 import echartsLiquidfill from 'echarts/dist/echarts-liquidfill'
-
 import exclusivelist from '@/components/common/action/exclusivelist.vue'
 import List from '@/components/common/action/list.vue'
 export default {
@@ -690,7 +689,8 @@ return {
 
     // list options
     options : {
-        fistline : true
+        fistline : true,
+        type : 1,
     }
 };
 },
@@ -2144,7 +2144,6 @@ methods: {
     },
     // 切换 tag
     cut(v){
-        console.log(v)
         if(v[1] === 1){
             this.variate_one = v[0];
             if(v[0]===1){
@@ -2162,24 +2161,6 @@ methods: {
         }
 
     }
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 },

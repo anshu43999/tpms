@@ -3,24 +3,20 @@
 <div class=''>
     <!--面包屑-->
     <breadcrumb :breadcrumb="breadcrumb" v-on:searchingfor="searchingfor"></breadcrumb>
-	<listheader :listheaderOptions='listheaderOptions'></listheader>
-	<span class="withdraw">
+    
+
+    <listheader :listheaderOptions='listheaderOptions'></listheader>
+    <span class="withdraw">
 		点击收回
 	</span>
 
-	<div class="table_wrap">
-		<listoptions></listoptions>
-		<div class="list_context">
-			<p>山西省太原市数据抽取系统接警处理统计</p>
-			<div class="list_time">
-				<div class="times">统计时段：2019.06.2 00:00:00—2019.06.26 13:24:14</div>
-
-				<div class="printTime">打印时间：2019.06.26  13:24:18</div>
-			</div>
-
-			<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>
-		</div>
+    <div class="table_wrap">
+			<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>	
 	</div>
+
+
+
+
 
 </div>
 </template>
@@ -35,10 +31,11 @@ import listoptions from '@/components/common/action/listoptions.vue';
 export default {
 //import引入的组件需要注入到对象中才能使用
 components: {
-	Breadcrumb,
-	listheader,
-	List,
-	listoptions
+    List,
+    Breadcrumb,
+    listheader,
+    listoptions
+
 },
 data() {
 //这里存放数据
@@ -46,48 +43,47 @@ return {
     breadcrumb:{
         search:false,   
         searching:'',
-    },
-	
-	// listheader Options
+	},
 	listheaderOptions :{
 		timeExact : true ,    //时分秒
 		timeExacts : false ,   //日期
 		administrate : true,  //行政区划代码
-		searchInput : false,   //接警单编号 
+		searchInput : true ,  //接警单编号 
 		manner : false, // 报警方式 
 		type : 1,
 	},
 	// list options
     listOptions : {
 		fistline : false,
-		type : 3,
+		type : 1,
 		czxs : false , //操作项 
 
 	},
 
 	data9 :[
-        {city : "市级行政区划代码", value :"xzqh"},
-        {city : "县级行政区划代码", value :"bjl"},
-        {city : "110报警", value :"bjsj"},
-		{city : "122报警", value :"jjyxm"},
-        {city : "119报警", value :"jjybh"},
-		{city : "总计", value :"telphone"},
-		
-		
+        {city : "行政区划代码", value :"xzqh"},
+        {city : "接警单编号", value :"bjl"},
+        {city : "检查日期", value :"bjsj"},
+		{city : "错误描述", value :"jjyxm"},	
 
     ],
     data10: [
-        {  xzqh: '太原市',  bjl: '太原市',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '小店区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '迎泽区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-		{  xzqh: '太原市',  bjl: '杏花岭区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980   }, 
-        {  xzqh: '太原市',  bjl: '尖草坪区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980   }, 
-        {  xzqh: '太原市',  bjl: '万柏林区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980  }, 
-        {  xzqh: '太原市',  bjl: '晋源区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-
+        {  xzqh: '太原市',  bjl: '太原市',  bjsj:22222,  jjyxm:23145,   }, 
+        {  xzqh: '太原市',  bjl: '小店区',  bjsj:22222,  jjyxm:23145,    }, 
+        {  xzqh: '太原市',  bjl: '迎泽区',  bjsj:22222,  jjyxm:23145,   }, 
+		{  xzqh: '太原市',  bjl: '杏花岭区',  bjsj:22222,  jjyxm:23145, }, 
+        {  xzqh: '太原市',  bjl: '尖草坪区',  bjsj:22222,  jjyxm:23145,  }, 
+        {  xzqh: '太原市',  bjl: '万柏林区',  bjsj:22222,  jjyxm:23145,  }, 
+        {  xzqh: '太原市',  bjl: '晋源区',  bjsj:22222,  jjyxm:23145,    }, 
+		{  xzqh: '太原市',  bjl: '尖草坪区',  bjsj:22222,  jjyxm:23145,  }, 
+        {  xzqh: '太原市',  bjl: '万柏林区',  bjsj:22222,  jjyxm:23145,  }, 
+		{  xzqh: '太原市',  bjl: '晋源区',  bjsj:22222,  jjyxm:23145,   }, 
+        {  xzqh: '太原市',  bjl: '清徐县',  bjsj:22222,  jjyxm:23145,    }, 
+        {  xzqh: '太原市',  bjl: '阳曲县',  bjsj:22222,  jjyxm:23145,  }, 
+        {  xzqh: '太原市',  bjl: '娄烦县',  bjsj:22222,  jjyxm:23145,   }, 
+        {  xzqh: '太原市',  bjl: '古交市',  bjsj:22222,  jjyxm:23145,   }, 
 
 	],
-
 };
 },
 //监听属性 类似于data概念
@@ -97,19 +93,15 @@ watch: {},
 //方法集合
 methods: {
     searchingfor(searching,page){
-  		page?page:1;
-  		this.searchText=searching;
-		console.log(this.searchText);
-  		var params = {};
-		params.phoneNumberOralarmNumber = this.searchText;
-		params.ruKuSampleState = 2
-		params.fenxiaoyangSampleState = 3
-		params.rank = 'sampleNum'
-	  },
-	  
-		
-
-
+        page?page:1;
+        this.searchText=searching;
+        console.log(this.searchText);
+        var params = {};
+        params.phoneNumberOralarmNumber = this.searchText;
+        params.ruKuSampleState = 2
+        params.fenxiaoyangSampleState = 3
+        params.rank = 'sampleNum'
+    },
 
 },
 //生命周期 - 创建完成（可以访问当前this实例）

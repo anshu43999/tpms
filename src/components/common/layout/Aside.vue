@@ -120,7 +120,7 @@ export default {
         {
           icon: "icon-chaxun",
           title: "警情查询",
-          linkto: "",
+          linkto: "/index/AlarmQuery/Synthesis",
           level: 2,
           pid: 0,
           lid: 1
@@ -177,7 +177,7 @@ export default {
 		{
 			icon: 'icon-jingqingtongji',
 			title: '警情统计',
-			linkto: '',
+			linkto: '/index/AlarmStatistics/AlarmType',
 			level: 2,
 			pid: 0,
 			lid: 8
@@ -242,7 +242,7 @@ export default {
     {
       icon: "icon-chouqujiankong",
       title: "抽取监控",
-      linkto: "",
+      linkto: "/index/ExtractMonitor/ExtractState",
       level: 2,
       pid: 0,
       lid: 16
@@ -272,39 +272,117 @@ export default {
           lid: 19
         },
         
+  // {
+  //   icon: "icon-tongjibaobiao",
+  //   title: "统计报表",
+  //   linkto: "/index/StatisticsForms/JQStatistics",
+  //   level: 2,
+  //   pid: 0,
+  //   lid: 20,
+  // },
+  //   {
+  //     icon: "icon-jiaoseguanli",
+  //     title: "统计报表1",
+  //     linkto: "/index/StatisticsForms/JQStatistics",
+  //     level: 2,
+  //     pid: 20,
+  //     lid: 21
+  //   },
+  //   {
+  //     icon: "icon-jiaoseguanli",
+  //     title: "统计报表2",
+  //     linkto: "/index/StatisticsForms/JQThread",
+  //     level: 2,
+  //     pid: 20,
+  //     lid: 22
+  //   },
+  //   {
+  //     icon: "icon-jiaoseguanli",
+  //     title: "统计报表3",
+  //     linkto: "/index/StatisticsForms/AlarmStatistics",
+  //     level: 2,
+  //     pid: 20,
+  //     lid: 23
+  //   },
   {
-    icon: "icon-tongjibaobiao",
-    title: "统计报表",
-    linkto: "",
+    icon: "icon-kaohe",
+    title: "规范考核",
+    linkto: "/index/standardAssess/dataSize",
     level: 2,
     pid: 0,
     lid: 20,
-//        needAuth: "AuthorityManagement"
   },
     {
-      icon: "icon-jiaoseguanli",
-      title: "警情统计表",
-      linkto: "/index/StatisticsForms/JQStatistics",
+      icon: "",
+      title: "数据质量考核",
+      linkto: "/index/standardAssess/dataSize",
       level: 2,
       pid: 20,
       lid: 21
     },
     {
-      icon: "icon-jiaoseguanli",
-      title: "警情线索统计表",
-      linkto: "/index/StatisticsForms/JQThread",
+      icon: "",
+      title: "考核情况统计",
+      linkto: "/index/standardAssess/assessCase",
       level: 2,
       pid: 20,
       lid: 22
     },
+
+
+  {
+    icon: "icon-kaohe",
+    title: "系统维护",
+    linkto: "/index/systemMaintain/indexSet",
+    level: 2,
+    pid: 0,
+    lid: 23,
+  },
     {
-      icon: "icon-jiaoseguanli",
-      title: "报警情况统计表",
-      linkto: "/index/StatisticsForms/AlarmStatistics",
+      icon: "",
+      title: "首页重大警情设置",
+      linkto: "/index/systemMaintain/indexSet",
       level: 2,
-      pid: 20,
-      lid: 23
+      pid: 23,
+      lid: 24
     },
+    {
+      icon: "",
+      title: "数据考核条件设置",
+      linkto: "/index/systemMaintain/dataAssess",
+      level: 2,
+      pid: 23,
+      lid: 25
+    },
+    {
+      icon: "",
+      title: "用户权限管理",
+      linkto: "/index/systemMaintain/userJurisdiction",
+      level: 2,
+      pid: 23,
+      lid: 26
+    },
+    {
+      icon: "",
+      title: "用户维护",
+      linkto: "/index/systemMaintain/userPreserve",
+      level: 2,
+      pid: 23,
+      lid: 27
+    },
+    {
+      icon: "",
+      title: "单位维护",
+      linkto: "/index/systemMaintain/unitsPreserve",
+      level: 2,
+      pid: 23,
+      lid: 28
+    },
+   
+
+
+
+
        
         
       ]

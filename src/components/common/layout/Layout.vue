@@ -3,12 +3,12 @@
 <!--		登录-->
 		<Login :login-show="ls" @close="close"></Login>
 
-		<el-container id="father" class="Sinograinrelative" style="min-height: 100%" :class="{ overflow: overflow }">
+		<el-container id="father" class="Sinograinrelative" style="height: 100%" :class="{ overflow: overflow }">
 			<el-header>
 				<Tpms-header></Tpms-header>
 			</el-header>
-			<el-container style="min-height: 100%;">
-				<Tpms-sidebar></Tpms-sidebar>
+			<el-container style="max-height:100%; overflow : hidden" >
+				<Tpms-sidebar  ></Tpms-sidebar>
 				<el-main class="Sinograinrelative" style="min-height:100%;padding: .25rem .25rem 0 .25rem;    ">
 					<router-view></router-view>
 					<!--</transition>-->
@@ -68,7 +68,7 @@
 			if(to.name=='首页'){
 				this.overflow=true
 			}else{
-				this.overflow=false
+				this.overflow=true
 			}
 			next()
 		},

@@ -171,16 +171,75 @@ let router = new Router({
                 },
                 {
                     path: "StatisticsForms/JQThread",
-                    name: "统计报表/警情线索统计表",
+                    name: "统计报表/数据质量考核",
                     component: () => import("../pages/StatisticsForms/JQThread"),
-                    meta: { needAuth: '警情线索统计表 ' },
+                    meta: { needAuth: '数据质量考核 ' },
                 },
                 {
                     path: "StatisticsForms/AlarmStatistics",
-                    name: "统计报表/报警情况统计表",
+                    name: "统计报表/考核情况统计",
                     component: () => import("../pages/StatisticsForms/AlarmStatistics"),
-                    meta: { needAuth: '报警情况统计表 ' },
-                }
+                    meta: { needAuth: '考核情况统计 ' },
+                },
+                // 规范考核
+                {
+                    path : "standardAssess",
+                    name : "standardAssess",
+                    component: () => import("../pages/standardAssess/dataSize"),
+                    redirect: 'standardAssess/dataSize',
+                },
+                {
+                    path: "standardAssess/dataSize",
+                    name: "规范考核/数据质量考核",
+                    component: () => import("../pages/standardAssess/dataSize"),
+                    meta: { needAuth: '数据质量考核 ' },
+                },
+                {
+                    path: "standardAssess/assessCase",
+                    name: "规范考核/考核情况统计",
+                    component: () => import("../pages/standardAssess/assessCase"),
+                    meta: { needAuth: '考核情况统计 ' },
+                },
+                // 系统维护
+                {
+                    path : "systemMaintain",
+                    name : "systemMaintain",
+                    component: () => import("../pages/systemMaintain/indexSet"),
+                    redirect: 'systemMaintain/indexSet',
+                },
+                {
+                    path: "systemMaintain/indexSet",
+                    name: "系统维护/首页重大警情设置",
+                    component: () => import("../pages/systemMaintain/indexSet"),
+                    meta: { needAuth: '首页重大警情设置 ' },
+                },
+                {
+                    path: "systemMaintain/dataAssess",
+                    name: "系统维护/数据考核条件设置",
+                    component: () => import("../pages/systemMaintain/dataAssess"),
+                    meta: { needAuth: '数据考核条件设置 ' },
+                },
+                {
+                    path: "systemMaintain/userJurisdiction",
+                    name: "系统维护/用户权限管理",
+                    component: () => import("../pages/systemMaintain/userJurisdiction"),
+                    meta: { needAuth: '用户权限管理 ' },
+                },
+                {
+                    path : "systemMaintain/userPreserve",
+                    name : "系统维护/用户维护",
+                    component: () => import("../pages/systemMaintain/userPreserve"),
+                    meta: { needAuth: '用户维护 ' },
+                },
+                {
+                    path : "systemMaintain/unitsPreserve",
+                    name : "系统维护/单位维护",
+                    component: () => import("../pages/systemMaintain/unitsPreserve"),
+                    meta: { needAuth: '单位维护 ' },
+                },
+
+
+
             ]
         }
     ]

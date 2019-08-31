@@ -43,14 +43,18 @@ return {
         timeExact : false ,    //时分秒
         timeExacts : true ,   //日期
         administrate : true,  //行政区划代码
-        searchInput : true ,  //接警单编号 
+        searchInput : false ,  //接警单编号 
+        manner : true, // 报警方式 
+        type : 1,
+
     },
 
 
 	// list options
     listOptions : {
-		fistline : false
-
+		fistline : false,
+        czxs : false , //操作项 
+        type : 1,
     },
     data9 :[
         {city : "行政区划代码", value :"xzqh"},
