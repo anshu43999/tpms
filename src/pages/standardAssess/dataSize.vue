@@ -10,7 +10,7 @@
 		点击收回
 	</span>
 
-    <div class="table_wrap">
+    <div class="table_wrap wrap_list_one">
 			<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>	
 	</div>
 

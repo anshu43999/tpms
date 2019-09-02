@@ -5,7 +5,7 @@
         v-if="options['type'] ===1"
         border
         :data="data10"
-        :header-cell-style="{background:'#e5f1ff',color:'#606266'}"
+        :header-cell-style="{background:'#fff',color:'#666'}"
         style="width: 100% text-algin=center">
         <el-table-column
           v-if="options['fistline']"
@@ -27,7 +27,7 @@
 
         </el-table-column>
 
-          <el-table-column label="操作" v-if="options['czxs']">
+          <el-table-column label="操作" v-if="options['czxs']"  align='center'>
             <template slot-scope="scope">
               <el-button
                 size="mini"
@@ -46,7 +46,7 @@
         v-if="options['type'] ===2"
         border
         :data="data10"
-
+        :header-cell-style="{background:'#fff',color:'#666'}"
         style="width: 100% text-algin=center">
         <el-table-column
           v-if="options['fistline']"
@@ -105,6 +105,7 @@
       <el-table
         v-if="options['type'] ===3"
         :data="data10"
+        :header-cell-style="{background:'#fff',color:'#666'}"
        :span-method="objectSpanMethod" :cell-class-name="tableRowClassName"
         @cell-mouse-leave="cellMouseLeave"  @cell-mouse-enter="cellMouseEnter" 
         border
@@ -122,6 +123,69 @@
 
       </el-table>
 
+      <!-- 连接状态 -->
+      <el-table
+        v-if="options['type'] ===4"
+        border
+        :data="data10"
+        :header-cell-style="{background:'#c2d8ff',color:'#666'}"
+        style="width: 100% text-algin=center">
+        <el-table-column
+          v-if="options['fistline']"
+          prop="classify"
+          label=""
+          align='center'
+          header-align = 'center'
+          >
+        </el-table-column>
+
+        <template  v-for="(item,index) in data9">
+          <el-table-column 
+            :key="index"
+            v-if="item['value'] === 'linkStatus'"
+            align='center'
+            :prop="item['value']"
+            :label="item['city']"
+          >
+             <!-- <i :class="[item['value']===1 ?'normal icon-lianjiezhengchang': item['value']===2 ? 'icon-lianjiezhengchang3 break': 'icon-lianjiezhengchang2 delayed','iconfont']"></i> -->
+            <template slot-scope="scope">
+              <i  
+                :class="[scope.row.linkStatus===1 ?'normal icon-lianjiezhengchang': scope.row.linkStatus===2 ? 'icon-lianjiezhengchang3 break': 'icon-lianjiezhengchang2 delayed','iconfont']"
+              > </i>
+
+            </template>
+            
+
+
+          </el-table-column>
+
+
+          <el-table-column
+            v-else 
+            :key="index"
+            :prop="item['value']"
+            :label="item['city']"
+            align='center'
+          >
+
+          </el-table-column>
+
+
+        </template>
+
+
+          <el-table-column label="操作" v-if="options['czxs']"  align='center'>
+            <template slot-scope="scope">
+              <el-button
+                size="mini"
+                @click="handleEdit(scope.$index, scope.row)">查看详情</el-button>
+              <!-- <el-button
+                size="mini"
+                type="danger"
+                @click="handleDelete(scope.$index, scope.row)">删除</el-button> -->
+            </template>
+        </el-table-column>
+      </el-table>
 
       
 
@@ -265,5 +329,28 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 //@import url(); 引入公共css类
 .el-table .hovered-row {
     background: #f5f7fa;
+   
   }
+  .normal{
+		color: #2ec536
+;
+	}
+	.break{
+		color : #be1919
+;
+	}
+	.delayed{
+		color :#ffc600;
+	}
+.el-table .el-table__header{
+  width: 100% !important;
+}
+.el-table .el-table__body{
+  width: 100% !important;
+}
+.list_context{
+  background-color: #fff;
+}
+
+
 </style>

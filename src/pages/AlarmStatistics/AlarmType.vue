@@ -28,8 +28,9 @@
 
 				<div class="printTime">打印时间：2019.06.26  13:24:18</div>
 			</div>
-
+			<div class="wrap_list_one">
 			<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>
+			</div>
 
 
 		</div>

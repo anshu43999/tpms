@@ -274,16 +274,16 @@ return {
         {city: '古交市', value: 301}
     ],
     data111:[
-        {city : "太原", value :1000},
+        {city : "太原", value :156},
         {city : "长治", value :424},
         {city : "朔州", value :4},
         {city : "运城", value :312},
-        {city : "大同", value :1000},
+        {city : "大同", value :852},
         {city : "晋城", value :52},
-        {city : "晋中", value :1000},
-        {city : "临汾", value :1000},
+        {city : "晋中", value :567},
+        {city : "临汾", value :876},
         {city : "忻州", value :5},
-        {city : "阳泉", value :1000},
+        {city : "阳泉", value :269},
     ],
     // 近七日两抢一盗分布
     data3: [

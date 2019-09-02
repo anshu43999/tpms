@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-<div class=''>
+<div class='wrap_list_one'>
     <!--面包屑-->
     <breadcrumb :breadcrumb="breadcrumb" v-on:searchingfor="searchingfor"></breadcrumb>
     
@@ -10,7 +10,7 @@
 	</span>
 
 
-    <div>
+    <div class="wrap_list_one">
         <List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>
     </div>
 
@@ -54,7 +54,7 @@ return {
     listOptions : {
 		fistline : false,
         czxs : false , //操作项 
-        type : 1,
+        type : 4,
     },
     data9 :[
         {city : "行政区划代码", value :"xzqh"},

@@ -2,7 +2,7 @@
 <template>
 <div :class="listheaderOptions['type']===1 ? 'list_header' : 'list_header_one'       " >
     <template v-if="listheaderOptions['type']===1">
-        <div class="block common_op" v-if="listheaderOptions['timeExact']">
+        <div class="block common_op" v-if="listheaderOptions['timeExact']" style="margin-right: .2rem;">
             <span class="demonstration">接警时间</span>
             <el-date-picker
             v-model="value1"
@@ -14,7 +14,7 @@
             </el-date-picker>
         </div>
 
-        <div class="block common_op" v-if="listheaderOptions['timeExacts']">
+        <div class="block common_op" v-if="listheaderOptions['timeExacts']" style="margin-right: .2rem;">
             <span class="demonstration">接警时间</span>
             <el-date-picker
             v-model="value1"
@@ -45,7 +45,7 @@
             </div>
 
             <div class="boxInput ">
-                <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                <el-select style="width:1.4rem;"  v-model="value"  	size ='small' filterable placeholder="请选择">
                     <el-option
                     
                     v-for="item in options"
@@ -56,14 +56,13 @@
                     </el-option>
                 </el-select>
             </div>
-
         </div>
 
         <div class="common_op" v-if="listheaderOptions['searchInput']">
             <div class="boxInput"  style="margin-left : .2rem" >
                 <span class="demonstration">接警单编号</span>
                 <el-input
-                style="width : 2rem"
+                style="width : 1.8rem"
                 placeholder="请输入接警单编号"
                 v-model="input"
                 size ='small'
@@ -74,7 +73,7 @@
 
         <div class="common_op" v-if="listheaderOptions['manner']">
             <span>报警方式代码</span>
-            <el-select v-model="value" style="width:2rem;"  size ='small' placeholder="请选择">
+            <el-select v-model="value" style="width:1.4rem;"  size ='small' placeholder="请选择">
                 <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -83,7 +82,6 @@
                 </el-option>
             </el-select>
         </div>
-        
 
         <div class="inquire">
             <span>查询</span>
@@ -92,8 +90,8 @@
     </template>
 
     <template v-if="listheaderOptions['type']===2">
-        <div style="width : 100% ; height : 100% ; overflow : hidden">
-            <div class="block common_op">
+        <div style="width : 100% ; height : 100% ; overflow : hidden" >
+            <div class="block common_op" style="margin-right: .2rem;">
                 <span class="demonstration">接警时间</span>
                 <el-date-picker
                 v-model="value1"
@@ -108,7 +106,7 @@
                 <div class="boxInput"  style="margin-left : .2rem" >
                     <span class="demonstration">接警单编号</span>
                     <el-input
-                    style="width : 2rem"
+                    style="width : 1.8rem"
                     placeholder="请输入接警单编号"
                     v-model="input"
                     size ='small'
@@ -148,7 +146,7 @@
                     <i class="iconfont icon-guanlian"></i>
                 </div>
                 <div class="boxInput ">
-                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                    <el-select style="width:1.4rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
                         <el-option
                         v-for="item in options"
                         :key="item.value"
@@ -273,7 +271,7 @@
     
     <template v-if="listheaderOptions['type']===3">
         <div style="width : 100% ; height : 100% ; overflow : hidden">
-            <div class="block common_op">
+            <div class="block common_op" style="margin-right: .2rem;">
                 <span class="demonstration">接警时间</span>
                 <el-date-picker
                 v-model="value1"
@@ -288,7 +286,7 @@
                 <div class="boxInput"  style="margin-left : .2rem" >
                     <span class="demonstration">接警单编号</span>
                     <el-input
-                    style="width : 2rem"
+                    style="width : 1.8rem"
                     placeholder="请输入接警单编号"
                     v-model="input"
                     size ='small'
@@ -327,7 +325,7 @@
                     <i class="iconfont icon-guanlian"></i>
                 </div>
                 <div class="boxInput ">
-                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                    <el-select style="width:1.4rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
                         <el-option
                         v-for="item in options"
                         :key="item.value"
@@ -391,7 +389,7 @@
                 <div class="boxInput"  style="margin-left : .2rem" >
                     <span class="demonstration">接警单编号</span>
                     <el-input
-                    style="width : 2rem"
+                    style="width : 1.8rem"
                     placeholder="请输入接警单编号"
                     v-model="input"
                     size ='small'
@@ -465,7 +463,7 @@
                     <i class="iconfont icon-guanlian"></i>
                 </div>
                 <div class="boxInput ">
-                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                    <el-select style="width:1.4rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
                         <el-option
                         v-for="item in options"
                         :key="item.value"
@@ -513,7 +511,7 @@
 
     <template v-if="listheaderOptions['type']===5">
         <div style="width : 100% ; height : 100% ; overflow : hidden">
-            <div class="block common_op">
+            <div class="block common_op" style="margin-right: .2rem;">
                 <span class="demonstration">接警时间</span>
                 <el-date-picker
                 v-model="value1"
@@ -543,7 +541,7 @@
                 </div>
 
                 <div class="boxInput ">
-                    <el-select style="width:2rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
+                    <el-select style="width:1.4rem;"  v-model="value" 	size ='small' filterable placeholder="请选择">
                         <el-option
                         
                         v-for="item in options"

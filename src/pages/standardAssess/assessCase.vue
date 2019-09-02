@@ -12,16 +12,15 @@
 
     <div class="echarts_wrap">
 		<div class="echarts_title" style="text-aglin : center">总合格率</div>
-		<div id="area" style="width: 100%;height: 100%">
+		<div id="area" style="width: 100%;height: 3.12rem">
 
 		</div>
 
 	</div>
 
     <div class="table_wrap">
-		<div class="list_context">
-			
-			<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>
+		<div class="list_context wrap_list_one">
+			<List :data9='data9' :data10 ='data10' :options='listOptions' ></List>
 		</div>
 	</div>
 
@@ -442,8 +441,10 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 
 
 .echarts_wrap{
-    height: 3.21rem;
+    height: 3.9rem;
     text-align: center;
+    border : 1px solid #dddddd;
+    margin-top:.24rem; 
     
     .echarts_title{
         height: .55rem;

@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-<div class=''>
+<div class='wrap_list_one'>
     <!--面包屑-->
     <breadcrumb :breadcrumb="breadcrumb" v-on:searchingfor="searchingfor"></breadcrumb>
     
@@ -61,7 +61,7 @@ return {
     listOptions : {
 		fistline : false,
         czxs : true , //操作项 
-        type : 1,
+        type : 4,
 
     },
     data9 :[

@@ -12,8 +12,8 @@
 	</span>
 
 	<div class="table_wrap">
-		<listoptions></listoptions>
-		<div class="list_context">
+		<!-- <listoptions></listoptions> -->
+		<!-- <div class="list_context">
 			<p>山西省太原市数据抽取系统接警处理统计</p>
 			<div class="list_time">
 				<div class="times">统计时段：2019.06.2 00:00:00—2019.06.26 13:24:14</div>
@@ -22,7 +22,12 @@
 			</div>
 
 			<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>
+		</div> -->
+
+		<div class="wrap_list_one">
+			<List :data9='data9' :data10 ='data10' :options='listOptions' ></List>
 		</div>
+		
 	</div>
 
 
@@ -62,7 +67,7 @@ return {
 	// list options
     listOptions : {
 		fistline : false,
-		type : 1,
+		type : 4,
 		czxs : false , //操作项 
 
 	},
@@ -75,27 +80,24 @@ return {
         {city : "未抽数量", value :"jjybh"},
 		{city : "抽取间隔时间（分）", value :"telphone"},
 		{city : "是否超时", value :"telphone"},
-		{city : "连接状态", value :"telphone"},
-		{city : "断线时间", value :"telphone"},
-		
-		
-
+		{city : "连接状态", value :"linkStatus"},
+		{city : "断线时间", value :"telphone"}
     ],
     data10: [
-        {  xzqh: '太原市',  bjl: '太原市',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '小店区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '迎泽区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-		{  xzqh: '太原市',  bjl: '杏花岭区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980   }, 
-        {  xzqh: '太原市',  bjl: '尖草坪区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980   }, 
-        {  xzqh: '太原市',  bjl: '万柏林区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980  }, 
-        {  xzqh: '太原市',  bjl: '晋源区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-		{  xzqh: '太原市',  bjl: '尖草坪区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980   }, 
-        {  xzqh: '太原市',  bjl: '万柏林区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980  }, 
-		{  xzqh: '太原市',  bjl: '晋源区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '清徐县',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '阳曲县',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '娄烦县',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
-        {  xzqh: '太原市',  bjl: '古交市',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
+        {  xzqh: '太原市',  bjl: '太原市',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1    }, 
+        {  xzqh: '太原市',  bjl: '小店区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1    }, 
+        {  xzqh: '太原市',  bjl: '迎泽区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1    }, 
+		{  xzqh: '太原市',  bjl: '杏花岭区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1   }, 
+        {  xzqh: '太原市',  bjl: '尖草坪区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:2   }, 
+        {  xzqh: '太原市',  bjl: '万柏林区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:2  }, 
+        {  xzqh: '太原市',  bjl: '晋源区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:2    }, 
+		{  xzqh: '太原市',  bjl: '尖草坪区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:3   }, 
+        {  xzqh: '太原市',  bjl: '万柏林区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1  }, 
+		{  xzqh: '太原市',  bjl: '晋源区',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1    }, 
+        {  xzqh: '太原市',  bjl: '清徐县',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1    }, 
+        {  xzqh: '太原市',  bjl: '阳曲县',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:2    }, 
+        {  xzqh: '太原市',  bjl: '娄烦县',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1    }, 
+        {  xzqh: '太原市',  bjl: '古交市',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,linkStatus:1    }, 
 
 	],
 

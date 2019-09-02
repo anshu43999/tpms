@@ -9,7 +9,9 @@
     <span class="withdraw">
             点击收回
 	</span>
-    <List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem ; margin-bottom : .25rem;"></List>
+    <div class="wrap_list_one">
+        <List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem ; margin-bottom : .25rem;"></List>
+    </div>
 </div>
 </template>
 
@@ -47,7 +49,7 @@ return {
     listOptions : {
         fistline : false,
         czxs : false , //操作项 
-        type : 1,
+        type :4,
     },
     data9 :[
         {city : "接警时间", value :"xzqh"},

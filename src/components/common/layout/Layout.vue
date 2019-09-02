@@ -152,4 +152,20 @@
 	.el-popper[x-placement^=top] .popper__arrow{
 		left: 20px!important;
 	}
+
+
+	.wrap_list_one{
+		width: 100%;
+	}
+
+	.el-table .el-table__header{
+		width: 100% !important;
+	}
+	.el-table .el-table__body{
+		width: 100% !important;
+	}
+	
+body .el-table th.gutter{
+    display: table-cell!important;
+}
 </style>

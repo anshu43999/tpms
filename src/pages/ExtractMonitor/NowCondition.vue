@@ -4,25 +4,32 @@
     <!--面包屑-->
     <breadcrumb :breadcrumb="breadcrumb" v-on:searchingfor="searchingfor"></breadcrumb>
 
-	<listheader :listheaderOptions='listheaderOptions'></listheader>
+	<div class="condition">
+		<div class="condition_title">
+			<span>
+				<i class="iconfont icon-lianjiezhengchang normal"></i>正常
+			</span>
+			<span>
+				<i class="iconfont icon-lianjiezhengchang3 break"></i>链路断开
+			</span>
+			<span>
+				<i class="iconfont icon-lianjiezhengchang2 delayed"></i>超过8小时无新警情
+			</span>
 
-	<span class="withdraw">
-		点击收回
-	</span>
-
-	<div class="table_wrap">
-		<listoptions></listoptions>
-		<div class="list_context">
-			<p>山西省太原市数据抽取系统接警处理统计</p>
-			<div class="list_time">
-				<div class="times">统计时段：2019.06.2 00:00:00—2019.06.26 13:24:14</div>
-
-				<div class="printTime">打印时间：2019.06.26  13:24:18</div>
-			</div>
-
-			<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>
 		</div>
+
+		<div class="condition_context">
+			<div v-for="(item,index) in JQstate" :key="index" style="width : 12.5%; float:left;height : .57rem;text-align: center; line-height : .57rem" >  
+				{{item['city']}} <i :class="[item['value'] ===1 ? 'normal icon-lianjiezhengchang':item['value'] ===2 ? 'icon-lianjiezhengchang3 break': 'icon-lianjiezhengchang2 delayed','iconfont']"></i>
+			</div>
+		</div>
+
 	</div>
+	<div class="wrap_list_one">
+		<List :data9='data9' :data10 ='data10' :options='listOptions' style="margin-top : .25rem"></List>
+
+	</div>
+
 </div>
 </template>
 
@@ -59,21 +66,21 @@ return {
 	// list options
     listOptions : {
 		fistline : false,
-		type : 1,
+		type : 4,
 		czxs : false , //操作项 
 
 	},
 
 	data9 :[
-        {city : "检查日期", value :"xzqh"},
-        {city : "行政区划代码", value :"bjl"},
-        {city : "应抽数量", value :"bjsj"},
-		{city : "实抽数量", value :"jjyxm"},
-        {city : "未抽数量", value :"jjybh"},
-		{city : "抽取间隔时间（分）", value :"telphone"},
-		{city : "是否超时", value :"telphone"},
-		{city : "连接状态", value :"telphone"},
-		{city : "断线时间", value :"telphone"},
+        {city : "行政区划代码", value :"xzqh"},
+        {city : "抽取总数", value :"bjl"},
+        {city : "接警单数", value :"bjsj"},
+		{city : "处警单数", value :"jjyxm"},
+        {city : "反馈单数", value :"jjybh"},
+		{city : "有效警情", value :"yxjq"},
+		{city : "抽取状态", value :"telphone"},
+		{city : "最后抽取时间", value :"dwdm"},
+		{city : "下次抽取时间", value :"telphone"},
 		
 		
 
@@ -95,6 +102,10 @@ return {
         {  xzqh: '太原市',  bjl: '古交市',  bjsj:22222,  jjyxm:23145, jjybh:2412,telphone:31231,dwdm:980    }, 
 
 	],
+	JQstate : [{city:'太原市',value : 1},{city:'大同市',value : 1},{city:'阳泉市',value : 2},{city:'长治市',value : 3},{city:'晋城市',value : 1},{city:'太原市',value : 1},{city:'太原市',value : 1},{city:'太原市',value : 1},{city:'太原市',value : 1},{city:'太原市',value : 1},{city:'太原市',value : 1},]
+
+
+
 
 
 };
@@ -177,5 +188,37 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 	}
 
 
+}
+
+.condition{
+	min-height : 1.64rem;
+	.condition_title{
+		height: .44rem;
+		text-align: right;
+		span{
+			margin-left: .7rem;
+			font-size: .16rem;
+			
+			
+		}
+	}
+	.condition_context{
+		height: 1.15rem;
+		border:1px solid #dddddd;
+		background-color: #fff;
+	}
+
+	.normal{
+		color: #2ec536;
+		margin-right: .1rem;
+	}
+	.break{
+		color : #be1919;
+		margin-right: .1rem;
+	}
+	.delayed{
+		color :#ffc600;
+		margin-right: .1rem;
+	}
 }
 </style>
